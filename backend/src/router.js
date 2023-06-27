@@ -2,12 +2,15 @@ const express = require("express");
 
 const router = express.Router();
 
-const itemControllers = require("./controllers/itemControllers");
+const productsControllers = require("./controllers/productsControllers");
+const { verifyToken } = require("./services/auth");
 
-router.get("/items", itemControllers.browse);
-router.get("/items/:id", itemControllers.read);
-router.put("/items/:id", itemControllers.edit);
-router.post("/items", itemControllers.add);
-router.delete("/items/:id", itemControllers.destroy);
+router.get("/products", productsControllers.browse);
+router.get("/products/:id", productsControllers.read);
+
+router.use(verifyToken);
+router.put("/products/:id", productsControllers.edit);
+router.post("/products", productsControllers.add);
+router.delete("/products/:id", productsControllers.destroy);
 
 module.exports = router;
