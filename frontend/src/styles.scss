@@ -1,6 +1,8 @@
 @use "./sass/variables";
 @use "./sass/home";
 @use "./sass/wrongPage";
+@use "./sass/_addUser.scss";
+@use "./sass/resetPassword";
 @use "./sass/faq";
 @use "./sass/header";
 @use "./sass/navModal";
@@ -10,6 +12,7 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
   box-sizing: border-box;
   line-height: 1.5;
   font-family: "Raleway";
