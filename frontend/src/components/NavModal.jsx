@@ -17,7 +17,7 @@ export default function NavModal() {
           <p>et la le 3</p>
         </Link>
         <Link to="/">
-          <p>Ici c'est 4</p>
+          <p>ici c'est 4</p>
         </Link>
 
         <button className="btnDisconnect" type="button">
