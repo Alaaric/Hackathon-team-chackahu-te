@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
 import WrongPage from "./pages/WrongPage";
 import Admin from "./pages/Admin";
