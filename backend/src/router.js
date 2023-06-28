@@ -4,6 +4,7 @@ const router = express.Router();
 
 const refProductsControllers = require("./controllers/refProductsControllers");
 const stockProductsControllers = require("./controllers/stockProductsControllers");
+const mailControllers = require("./controllers/mailControllers");
 
 const usersControllers = require("./controllers/usersControllers");
 const {
@@ -33,5 +34,8 @@ router.delete("/ref_products/:id", refProductsControllers.destroy);
 router.put("/stock_products/:id", stockProductsControllers.edit);
 router.post("/stock_products", stockProductsControllers.add);
 router.delete("/stock_products/:id", stockProductsControllers.destroy);
+
+router.get("/test", mailControllers.sendMail);
+router.put("/resetpassword", usersControllers.editUserPassword);
 
 module.exports = router;

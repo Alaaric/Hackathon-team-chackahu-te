@@ -22,6 +22,13 @@ class usersManager extends AbstractManager {
       [user.firstname, user.lastname, user.email, user.role_id, user.id]
     );
   }
+
+  updateUserPassword(user) {
+    return this.database.query(
+      `update ${this.table} set password = ? where id = ?`,
+      [user.password, user.id]
+    );
+  }
 }
 
 module.exports = usersManager;
