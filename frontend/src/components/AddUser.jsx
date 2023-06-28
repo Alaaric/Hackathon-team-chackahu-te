@@ -1,25 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
-import inputValidationUpdateUser from "../services/inputValidationUpdateUser";
+import inputValidationRules from "../services/inputValidationRules";
 
-export default function UpdateUser() {
-  const { id } = useParams();
-  const [user, setUser] = useState([]);
+export default function AddUser() {
   const [targetValues, setTargetValues] = useState({
-    firstName: user.firstname,
-    lastName: user.lastname,
-    email: user.email,
-    role: user.role_id,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    role: 1,
   });
-
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`)
-      .then((res) => setUser(res.data))
-      .catch((err) => console.error(err));
-  }, []);
 
   const update = (event) => {
     const target = event.currentTarget;
@@ -33,18 +24,18 @@ export default function UpdateUser() {
   const submit = (event) => {
     event.preventDefault();
 
-    const isValidForm = Object.values(
-      inputValidationUpdateUser(targetValues)
-    ).every((key) => key);
+    const isValidForm = Object.values(inputValidationRules(targetValues)).every(
+      (key) => key
+    );
 
     if (isValidForm) {
       axios
-        .put(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`, {
+        .post(`${import.meta.env.VITE_BACKEND_URL}/users`, {
           firstname: targetValues.firstName,
           lastname: targetValues.lastName,
           email: targetValues.email,
+          password: targetValues.password,
           role_id: parseInt(targetValues.role, 10),
-          id: user.id,
         })
 
         .then((response) => {
@@ -54,25 +45,30 @@ export default function UpdateUser() {
     } else {
       console.info("XXX Submitting form with state:", targetValues);
     }
+    event.target.reset();
   };
-  console.info(user);
+  console.info(targetValues.role);
   return (
-    <form className="add-user-management">
+    <form className="add-user-management" onSubmit={submit}>
       <div className="add-user-title-container">
-        <h2 className="add-user-title">Modification d'utilisateur</h2>
+        <h2 className="add-user-title">Ajout d'utilisateur</h2>
       </div>
       <div className="user-management-container">
         <div className="input-fields">
           <div className="roles-container-1">
             <label htmlFor="role_id">
               Role <br />
-              <select name="role" onChange={update} required>
+              <select
+                value={targetValues.role_id}
+                name="role"
+                onChange={update}
+                required
+              >
                 <option value="">-- Select --</option>
                 <option value="1">Admin</option>
                 <option value="2">Bénevole</option>
               </select>
             </label>
-            <p className="actual-role">Role actuel : {user.role_id}</p>
           </div>
           <div className="input-fields name-inputs-container">
             <label htmlFor="lastName" className="lastName">
@@ -80,7 +76,7 @@ export default function UpdateUser() {
               <input
                 type="text"
                 name="lastName"
-                placeholder={user.lastname}
+                placeholder="Insérez votre nom"
                 onChange={update}
                 required
               />
@@ -90,38 +86,39 @@ export default function UpdateUser() {
               <input
                 type="text"
                 name="firstName"
-                value={user.firstname}
-                placeholder={user.firstname}
+                placeholder="Insérez votre prénom"
                 onChange={update}
                 required
               />
             </label>
           </div>
-          <div className="input-fields desktop update">
+          <div className="input-fields desktop">
             <label htmlFor="email">
               Email <br />
               <input
                 type="email"
                 name="email"
                 className="input-email"
-                placeholder={user.email}
+                placeholder="Insérez votre email"
                 onChange={update}
                 required
               />
             </label>
 
-            <p>Reinitialiser le mot de passe</p>
+            <label htmlFor="password">
+              Mot de passe <br />
+              <input
+                type="password"
+                name="password"
+                placeholder="Insérez votre mot de passe"
+                onChange={update}
+                required
+              />
+            </label>
           </div>
         </div>
         <div className="add-button-container">
-          <button
-            className="remove-button-container"
-            type="button"
-            onClick={submit}
-          >
-            Modifier l'utilisateur
-          </button>
-          <button type="submit">Supprimer l'utilisateur</button>
+          <button type="submit">Ajouter l'utilisateur</button>
         </div>
       </div>
     </form>
