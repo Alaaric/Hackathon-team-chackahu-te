@@ -96,12 +96,12 @@ CREATE TABLE ref_products (
 
 INSERT INTO ref_products (brand_id, model_id, os_id, RAM_id, storage_id, image) 
 VALUES  
-(1, 1, 1, 3, 3, "./assets/images/galaxys9.jpg"), 
-(1, 2, 1, 4, 4, "./assets/images/galaxys20.jpg"), 
-(1, 4, 1, 4, 4, "./assets/images/galaxys21.jpg"), 
-(1, 5, 1, 3, 3,"./assets/images/galaxysA40.jpg"),   
-(1, 10, 1, 3, 4, "./assets/images/galaxyNote10.jpg"),
-(2, 11, 2, 3, 3, "./assets/images/iphone13.jpg");
+(1, 1, 1, 3, 3, "/assets/images/galaxys9.jpg"), 
+(1, 2, 1, 4, 4, "/assets/images/galaxys20.jpg"), 
+(1, 4, 1, 4, 4, "/assets/images/galaxys21.jpg"), 
+(1, 5, 1, 3, 3,"/assets/images/galaxysA40.jpg"),   
+(1, 10, 1, 3, 4, "/assets/images/galaxyNote10.jpg"),
+(2, 11, 2, 3, 3, "/assets/images/iphone13.jpg");
 
 CREATE TABLE stock_products (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
