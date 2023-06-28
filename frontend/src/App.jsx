@@ -4,9 +4,8 @@ import Home from "./pages/Home";
 import WrongPage from "./pages/WrongPage";
 import Admin from "./pages/Admin";
 import Contact from "./pages/Contact";
-
-import "./styles.scss";
 import Faq from "./pages/Faq";
+import "./styles.scss";
 
 function App() {
   return (

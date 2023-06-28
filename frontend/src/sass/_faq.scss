@@ -1,79 +1,63 @@
-:root {
-  --background: #f2f5f7;
-  --text-primary: #2f4770;
-  --text-secondary: #647780;
-  --white: #ffffff;
-}
+.container{
+    max-width: 1140px;
+    margin: auto;
+  }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding: 60px;
-  background-color: var(--background);
-}
-
-.container {
+.accordion {
   max-width: 1140px;
-  margin: auto;
+  margin: 100px auto 0;
+  border-radius: 3px;
+  background: #f1f1f1;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-/* accordion styles */
-
-h1 {
-  font-size: 42px;
-  color: var(--text-primary);
-  margin: 0px;
-  margin-bottom: 30px;
-}
-
-.accordion-simple > .active {
-  display: block;
-}
-
-.accordion__faq .inactive {
-  display: none;
-}
-
-.accordion__faq > div {
-  background-color: var(--white);
-  margin-bottom: 20px;
-  padding: 0px 15px;
-  border-radius: 5px;
+.accordion-visible {
+  background: #00ACB0;
+  width: 100%;
+  color: #fff;
   cursor: pointer;
-}
-
-.accordion__title {
-  color: var(--text-secondary);
-  padding-bottom: 20px;
-  font-weight: 500;
-}
-
-.accordion__faq-heading {
+  border: 1px solid #00ACB0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 7px 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
-.accordion__faq-heading .active {
-  color: var(--text-primary);
+.accordion-visible span {
+  padding: 15px 0;
+  font-size: 20px;
+}
+.accordion-visible img {
+  width: 20px;
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease-in-out;
+}
+.accordion-visible img.active {
+  transform: rotate(0deg);
 }
 
-.accordion__faq-heading h3 {
-  color: var(--text-secondary);
-  font-weight: 600;
+.accordion-visible h2 {
+  font-size: 20px;
 }
 
-.accordion__faq p {
-  margin: 0px;
-  padding-bottom: 30px;
-  color: var(--text-secondary);
-  line-height: 1.4;
+.accordion-toggle {
+  height: 0px;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, height 0.3s 0.3s ease-in-out;
+  color: #333;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.animated {
+  opacity: 1;
+  transition: height 0.3s ease-in-out, opacity 0.3s 0.3s ease-in-out;
+}
+
+.accordion-toggle p {
+  margin: 0;
+  padding: 22px 15px;
+  pointer-events: none;
+  line-height: 1.3;
 }
