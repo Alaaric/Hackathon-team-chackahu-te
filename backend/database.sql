@@ -3,7 +3,7 @@ CREATE TABLE roles (
   role VARCHAR(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO roles (role) VALUES ("admin"), ("users");
+INSERT INTO roles (role) VALUES ("admin"), ("user");
 
 CREATE TABLE users (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -29,14 +29,25 @@ CREATE TABLE brands (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   brand VARCHAR(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO brands (brand) VALUES ("Samsung"), ("Apple"), ("Xiaomi"), ("Google"), ("Huawei"), ("Nokia"); -- add brands if needed
+INSERT INTO brands (brand) VALUES ("Samsung"), ("Apple"), ("Xiaomi"), ("Google"), ("Huawei"); -- add brands if needed
 
 CREATE TABLE models (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(254) NOT NULL,
   screen_size FLOAT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO models (name, screen_size) VALUES ("model1",4.5), ("model2",5.1); -- add models & screen sizes
+INSERT INTO models (name, screen_size) VALUES 
+("Galaxy S9", 5.8), 
+("Galaxy S10", 5.8), 
+("Galaxy S20", 6.5), 
+("Galaxy S21", 6.2), 
+("Galaxy A40", 5.9), 
+("Galaxy A12", 6.5), 
+("Galaxy A70", 6.7),  
+("Galaxy Note8", 6.3), 
+("Galaxy Note9", 6.4), 
+("Galaxy Note10", 6.3), 
+("iPhone 13", 6.1); -- add models & screen sizes
 
 CREATE TABLE RAMs (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -48,7 +59,7 @@ CREATE TABLE storages (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   value VARCHAR(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO storages (value) VALUES (16), (32), (64), (128), (256);  
+INSERT INTO storages (value) VALUES (16), (32), (64), (128), (256), (512);  
 
 CREATE TABLE states (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -87,8 +98,13 @@ CREATE TABLE products (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
--- INSERT INTO products (title, type, color, description) 
--- VALUES 
--- ("monitor", "monitors", "black", "27 pouces"), 
--- ("computer", "electronics","grey", "hp-md-523654");
+INSERT INTO products (creation_date, color, brand_id, model_id, os_id, RAM_id, storage_id,
+state_id, category_id, network_id, accessories, photo, price, description) 
+VALUES  
+('2023-06-28 13:59:00.000000', "bleu", 1, 1, 1, 4, 5, 4, 4, 5, 0, "./assets/images/galaxys9.jpg", "139.00", "description ..."), 
+('2023-06-28 14:09:00.000000', "rose", 1, 2, 1, 4, 5, 4, 4, 5, 1, "./assets/images/galaxys20.jpg", "251.00", "description ..."), 
+('2023-06-28 14:14:00.000000', "Violet fantôme", 1, 4, 1, 4, 5, 4, 4, 5, 1, "./assets/images/galaxys21.jpg", "309.00", "description ..."), 
+('2023-06-28 14:18:00.000000', "orange", 1, 5, 1, 4, 5, 4, 4, 5, 1,"./assets/images/galaxysA40.jpg", "149.00", "description ..."),   
+('2023-06-28 14:39:00.000000', "Argent stellaire", 1, 10, 1, 4, 5, 4, 4, 5, 1, "./assets/images/galaxyNote10.jpg", "268", "description ..."), 
+('2023-06-28 14:45:00.000000', "Bleu", 2, 11, 2, 3, 4, 4, 4, 5, 1, "./assets/images/iphone13.jpg", "599.00", "description ...");
 
