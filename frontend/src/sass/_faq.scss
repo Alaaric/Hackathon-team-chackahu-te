@@ -1,16 +1,21 @@
+.container{
+    max-width: 1140px;
+    margin: auto;
+  }
+
 .accordion {
-  max-width: 400px;
+  max-width: 1140px;
   margin: 100px auto 0;
   border-radius: 3px;
   background: #f1f1f1;
 }
 
 .accordion-visible {
-  background: #7177ca;
+  background: #00ACB0;
   width: 100%;
   color: #fff;
   cursor: pointer;
-  border: 1px solid #474d9b;
+  border: 1px solid #00ACB0;
   display: flex;
   justify-content: space-between;
   align-items: center;
