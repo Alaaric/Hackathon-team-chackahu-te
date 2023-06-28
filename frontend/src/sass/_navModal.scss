@@ -1,0 +1,48 @@
+nav {
+  z-index: 40;
+  position: fixed;
+  display: block;
+  background-color: var(--grayColor);
+  width: 100%;
+  top: 60px;
+  text-align: center;
+  font-size: 1rem;
+  animation: slideIn 0.3s ease-in-out;
+
+  a {
+    font-weight: 500;
+    color: var(--bleuColor);
+    text-decoration: none;
+
+    p {
+      padding: 15px;
+      border: 1px solid var(--bleuColor);
+    }
+  }
+
+  .btnDisconnect {
+    margin: 10px 0 20px 0;
+    width: 50%;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    background: var(--lightBleuColor);
+    font-weight: 600;
+    color: white;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    display: none;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 60px;
+  }
+}
