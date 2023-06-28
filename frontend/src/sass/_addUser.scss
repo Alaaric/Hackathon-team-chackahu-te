@@ -1,0 +1,331 @@
+
+.add-user-management {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 85%;
+  margin: auto;
+  padding: 0.5rem 0;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #0e0d0d;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  box-shadow: 5px 9px 19px 8px rgba(0, 0, 0, 0.25);
+
+  .add-user-title-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 13.75rem;
+
+    .add-user-title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .input-fields {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+
+      >label {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+
+        >input {
+          margin-top: 0.5rem;
+          padding: 1rem;
+          border-radius: 5px;
+          border: 1px solid black;
+          width: 13rem;
+        }
+
+        :focus {
+          outline: none;
+          border: 1px solid red;
+        }
+
+        input[type=email] {
+          width: 13rem;
+        }
+      }
+    }
+
+    .roles-container-1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+
+      :focus {
+        outline: none;
+        border: 1px solid red;
+      }
+
+      select {
+        margin-top: 0.5rem;
+        margin-right: 1rem;
+        border-radius: 1rem;
+        border: 1px solid black;
+        cursor: pointer;
+      }
+
+      .role-expert {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        input[type=checkbox] {
+          margin-top: 0.5rem;
+          border: 1px solid black;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  // .profile-photo-container {
+  //   label {
+  //     display: flex;
+  //     justify-content: flex-start;
+  //     align-items: center;
+  //     flex-direction: column;
+  //     margin-top: 1rem;
+
+  //     .img-container {
+  //       display: flex;
+  //       justify-content: center;
+  //       align-items: center;
+  //       width: 5rem;
+  //       aspect-ratio: 1 / 1;
+  //       border: 1px solid black;
+  //       border-radius: 0.5rem;
+
+  //       img {
+  //         width: 80px;
+  //         object-fit: cover;
+  //         aspect-ratio: 1/1;
+  //         border-radius: 50%;
+  //       }
+  //     }
+
+  //     .dropzone {
+  //       display: flex;
+  //       justify-content: center;
+  //       align-items: center;
+  //       width: 5rem;
+  //       aspect-ratio: 3/1;
+  //       background-color: rgba(145, 148, 145, 0.267);
+  //       border-radius: 1rem;
+  //       border: 1px dashed black;
+  //       margin-top: 1rem;
+
+  //       .dropzone-placeholder-text {
+  //         font-size: 0.8rem;
+  //         text-align: center;
+  //         color: black;
+  //         margin: 0;
+  //         padding: 1rem;
+  //         cursor: pointer;
+  //       }
+  //     }
+  //   }
+  // }
+
+  .input-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+    width: 100%;
+
+    .roles-container-2 {
+      display: none;
+    }
+
+    .add-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 2rem;
+
+      button {
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem;
+        background-color: #70AF90;
+        border-radius: 0.5rem;
+        border: 1px solid black;
+        cursor: pointer;
+        transition: transform 350ms ease-out;
+
+        &:active {
+          border: none;
+          transform: scale(1.01);
+        }
+      }
+    }
+
+    .remove-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      width: 10rem;
+      height: 2rem;
+
+      button {
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 1rem;
+        background-color: #E36164;
+        border-radius: 0.5rem;
+        border: 1px solid black;
+        cursor: pointer;
+        transition: transform 350ms ease-out;
+
+        &:active {
+          border: none;
+          transform: scale(1.01);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .add-user-management {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+
+    .add-user-title-container {
+      margin-left: 1rem;
+      width: 100%;
+    }
+
+    .user-management-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      width: 100%;
+
+      .profile-photo-container {
+        order: -1;
+        flex-grow: 1;
+
+        label {
+          margin-top: 0.5rem;
+
+          .img-container {
+            width: 7rem;
+
+            img {
+              width: 150px;
+            }
+          }
+
+          .dropzone {
+            width: 7rem;
+          }
+        }
+      }
+
+      .input-container {
+
+
+        .input-fields {
+          >label {
+            width: 10rem;
+
+            >input {
+              width: 80%;
+            }
+          }
+
+          .name-inputs-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+          }
+
+          label {
+
+            input[type=email] {
+              min-width: 180%;
+            }
+
+            input[type=password]{
+              width: 10rem;
+            }
+          }
+
+          .roles-container-1 {
+            display: none;
+          }
+        }
+      }
+
+      .input-buttons-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        flex-grow: 1;
+        margin-left: 0.5rem;
+
+        .add-button-container {
+          justify-content: flex-end;
+          width: 100%;
+          margin-top: 4rem;
+        }
+
+        .roles-container-2 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          font-size: 1rem;
+
+          :focus {
+            outline: none;
+            border: 1px solid red;
+          }
+
+          select {
+            margin-top: 0.5rem;
+            margin-right: 1rem;
+            border-radius: 1rem;
+            border: 1px solid black;
+            cursor: pointer;
+          }
+
+          .role-expert-2 {
+             margin-top: 1rem;
+            margin-right: auto;
+            
+            input[type=checkbox] {
+              margin: 0 0.5rem 0 0;
+              border: 1px solid black;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
