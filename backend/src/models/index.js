@@ -30,12 +30,17 @@ pool.getConnection().catch(() => {
 const models = {};
 
 const UsersManager = require("./UsersManager");
-const ProductsManager = require("./productsManager");
+const RefProductsManager = require("./refProductsManager");
+const StockProductsManager = require("./stockProductsManager");
 
 models.user = new UsersManager();
 models.user.setDatabase(pool);
-models.products = new ProductsManager();
-models.products.setDatabase(pool);
+
+models.refProducts = new RefProductsManager();
+models.refProducts.setDatabase(pool);
+
+models.stockProducts = new StockProductsManager();
+models.stockProducts.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
