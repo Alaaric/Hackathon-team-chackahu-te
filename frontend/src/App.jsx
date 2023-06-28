@@ -15,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="*" element={<WrongPage />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/users/:id" element={<Admin />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
