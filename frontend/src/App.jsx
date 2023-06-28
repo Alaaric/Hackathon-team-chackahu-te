@@ -6,7 +6,6 @@ import Admin from "./pages/Admin";
 import Contact from "./pages/Contact";
 import Faq from "./pages/Faq";
 import "./styles.scss";
-import Faq from "./pages/Faq";
 
 function App() {
   return (
