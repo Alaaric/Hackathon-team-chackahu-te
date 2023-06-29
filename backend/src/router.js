@@ -9,6 +9,7 @@ const osControllers = require("./controllers/osControllers");
 const ramControllers = require("./controllers/ramControllers");
 const stateControllers = require("./controllers/stateControllers");
 const storageControllers = require("./controllers/storagesControllers");
+const categoriesControllers = require("./controllers/categoriesControllers");
 
 const usersControllers = require("./controllers/usersControllers");
 const {
@@ -36,6 +37,7 @@ router.get("/os", osControllers.browse);
 router.get("/rams", ramControllers.browse);
 router.get("/storage", storageControllers.browse);
 router.get("/state", stateControllers.browse);
+router.get("/categories", categoriesControllers.browse);
 
 router.use(verifyToken);
 router.put("/ref_products/:id", refProductsControllers.edit);

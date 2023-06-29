@@ -36,12 +36,16 @@ const OsManager = require("./osManager");
 const RamManager = require("./ramManager");
 const StateManager = require("./stateManager");
 const StorageManager = require("./storagesManager");
+const CategoriesManager = require("./categoriesManager");
 
 models.user = new UsersManager();
 models.user.setDatabase(pool);
 
 models.os = new OsManager();
 models.os.setDatabase(pool);
+
+models.categories = new CategoriesManager();
+models.categories.setDatabase(pool);
 
 models.RAMs = new RamManager();
 models.RAMs.setDatabase(pool);
