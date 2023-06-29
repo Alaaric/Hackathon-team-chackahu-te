@@ -1,0 +1,21 @@
+.admin {
+  padding: 15px;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    max-width: 380px;
+    li {
+      list-style: none;
+      cursor: pointer;
+    }
+  }
+  .display {
+    display: contents;
+  }
+
+  .hide {
+    display: none;
+  }
+}
