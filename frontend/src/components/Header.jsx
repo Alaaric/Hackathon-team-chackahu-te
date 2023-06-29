@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import NavModal from "./NavModal";
-
 import Logo from "../assets/logoEmmaus.png";
 import UserContext from "../contexts/UserContext";
 
@@ -22,8 +21,10 @@ export default function Header() {
       </div>
 
       <div className="navHeader">
-        <Link to="/">
-          <p>Accueil</p>
+        <Link
+          to={users.role_id === 2 ? "/admin/products" : "/connected/products"}
+        >
+          <p>Stock</p>
         </Link>
         <Link
           to={

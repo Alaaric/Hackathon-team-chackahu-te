@@ -18,7 +18,6 @@ function App() {
         <Routes>
           {/* PUBLIC ROUTES */}
           <Route path="/" element={<Login />} />
-          <Route path="/products" element={<AllProducts />} />
           <Route path="*" element={<WrongPage />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
 
@@ -33,6 +32,7 @@ function App() {
           >
             <Route path="calculator" element={<Calculator />} />
             <Route path="faq" element={<Faq />} />
+            <Route path="products" element={<AllProducts />} />
           </Route>
 
           {/* LOGGED ADMIN ROUTES */}
@@ -46,6 +46,7 @@ function App() {
           >
             <Route path="dashboard" element={<Admin />} />
             <Route path="calculator" element={<Calculator />} />
+            <Route path="products" element={<AllProducts />} />
             <Route path="faq" element={<Faq />} />
           </Route>
         </Routes>
