@@ -20,6 +20,7 @@ function RefProductsList({ tab }) {
       <table>
         <thead>
           <tr>
+            <th> </th>
             <th>Marque</th>
             <th>Modèle</th>
             <th>OS</th>
@@ -33,11 +34,12 @@ function RefProductsList({ tab }) {
               <tr key={product.id}>
                 <td>
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${product.image}`}
+                    src={`../src${product.image}`}
                     alt="phone"
+                    style={{ width: "45px" }}
                   />
-                  {product.brand}
                 </td>
+                <td>{product.brand}</td>
                 <td>{product.model}</td>
                 <td className="os">
                   {product.os === "iOs" ? (
