@@ -14,16 +14,13 @@ export default function Header() {
   return (
     <header>
       <div className="logoContainer">
-        <Link to="/">
+        <Link to="/calculator">
           <img src={Logo} className="logo" alt="logo" />
         </Link>
       </div>
 
       <div className="navHeader">
-        <Link to="/">
-          <p>Accueil</p>
-        </Link>
-        <Link to="/">
+        <Link to="/calculator">
           <p>Estimation</p>
         </Link>
         <Link to="/admin">
@@ -37,7 +34,9 @@ export default function Header() {
         </Link>
 
         <button className="btnDisconnect" type="button">
-          Déconnexion
+          <Link to="/">
+            <p>Déconnexion</p>
+          </Link>
         </button>
       </div>
 
