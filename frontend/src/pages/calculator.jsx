@@ -2,13 +2,53 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function Calculator() {
-  const [refPhones, setRefPhones] = useState([]);
+  const [ramList, setRamList] = useState([]);
+  const [storageList, setStorageList] = useState();
+  const [stateList, setStateList] = useState();
+  const [categoryList, setCategoryList] = useState();
+  const [osList, setOsList] = useState();
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/ref_products`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/rams`)
       .then((res) => {
-        setRefPhones(res.data);
+        setRamList(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/os`)
+      .then((res) => {
+        setOsList(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/storage`)
+      .then((res) => {
+        setStorageList(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/state`)
+      .then((res) => {
+        setStateList(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/categories`)
+      .then((res) => {
+        setCategoryList(res.data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -19,32 +59,41 @@ export default function Calculator() {
         <label htmlFor="model">
           Modèle
           <select name="model" id="model">
-            {refPhones &&
-              refPhones.map((phone) => (
-                <option value={phone.brand}>{phone.brand}</option>
-              ))}
+            {osList &&
+              osList.map((os) => <option value={os.name}>{os.name}</option>)}
           </select>
         </label>
         <label htmlFor="ram">
           RAM
           <select name="ram" id="ram">
-            <option value="">-- Select --</option>
+            {ramList &&
+              ramList.map((ram) => (
+                <option value={ram.value}>{ram.value}</option>
+              ))}
           </select>
         </label>
         <label htmlFor="storage">
           Stockage
           <select name="storage" id="storage">
-            <option value="">-- Select --</option>
+            {storageList &&
+              storageList.map((storage) => (
+                <option value={storage.value}>{storage.value}</option>
+              ))}
           </select>
         </label>
         <label htmlFor="state">
           État
           <select name="state" id="state">
-            <option value="">-- Select --</option>
+            {stateList &&
+              stateList.map((state) => (
+                <option value={state.state}>{state.state}</option>
+              ))}
           </select>
         </label>
         <button type="submit"> évaluer</button>
       </form>
+      {categoryList &&
+        categoryList.map((category) => <div>{category.category}</div>)}
     </div>
   );
 }
