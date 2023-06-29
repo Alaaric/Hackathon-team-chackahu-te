@@ -12,6 +12,7 @@ const ramControllers = require("./controllers/ramControllers");
 const stateControllers = require("./controllers/stateControllers");
 const storageControllers = require("./controllers/storagesControllers");
 const categoriesControllers = require("./controllers/categoriesControllers");
+const locationsControllers = require("./controllers/locationsControllers");
 
 const usersControllers = require("./controllers/usersControllers");
 const {
@@ -41,6 +42,10 @@ router.get("/storage", storageControllers.browse);
 router.get("/state", stateControllers.browse);
 router.get("/categories", categoriesControllers.browse);
 
+router.get("/brands", brandsControllers.browse);
+router.get("/models", modelsControllers.browse);
+router.get("/locations", locationsControllers.browse);
+
 router.use(verifyToken);
 router.put("/ref_products/:id", refProductsControllers.edit);
 router.post("/ref_products", refProductsControllers.add);
@@ -50,10 +55,7 @@ router.put("/stock_products/:id", stockProductsControllers.edit);
 router.post("/stock_products", stockProductsControllers.add);
 router.delete("/stock_products/:id", stockProductsControllers.destroy);
 
-router.get("/brands", brandsControllers.browse);
 router.post("/brands", brandsControllers.add);
-
-router.get("/models", modelsControllers.browse);
 router.post("/models", modelsControllers.add);
 
 module.exports = router;

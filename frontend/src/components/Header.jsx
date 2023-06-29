@@ -24,13 +24,13 @@ export default function Header() {
           <p>Accueil</p>
         </Link>
         <Link to="/">
-          <p>test1</p>
+          <p>Estimation</p>
         </Link>
-        <Link to="/">
-          <p>Test2</p>
+        <Link to="/admin">
+          <p>Admin</p>
         </Link>
-        <Link to="/">
-          <p>et la le 3</p>
+        <Link to="*">
+          <p>Test 404</p>
         </Link>
         <Link to="/Faq">
           <p>FAQ</p>
