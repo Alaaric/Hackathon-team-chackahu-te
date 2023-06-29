@@ -7,7 +7,7 @@ class productsManager extends AbstractManager {
 
   getstock() {
     return this.database.query(
-      `select ${this.table}.id, u.firstname, u.lastname, creation_date, color, brand, m.name model, photo, screen_size, network, os.name OS,
+      `select ${this.table}.id, photo, u.firstname, u.lastname, creation_date, color, brand, m.name model, photo, screen_size, network, os.name OS,
       RAMs.value RAM, storages.value storage, state, category, accessories, price, location, description from ${this.table}  
       inner join users as u on user_id = u.id
       inner join brands on brand_id = brands.id
@@ -23,7 +23,7 @@ class productsManager extends AbstractManager {
 
   getstockbyid(product) {
     return this.database.query(
-      `select u.firstname, u.lastname, creation_date, color, brand, m.name as model, screen_size, network, os.name as OS,
+      `select u.firstname, u.lastname, photo,creation_date, color, brand, m.name as model, screen_size, network, os.name as OS,
       RAMs.value as RAM, storages.value as storage, state, category, accessories, price, location, description from ${this.table} 
       inner join users as u on user_id = u.id
       inner join brands on brand_id = brands.id
