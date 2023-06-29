@@ -39,7 +39,6 @@ function RefProductsList({ tab }) {
               <td>{product.OS}</td>
               <td>{product.RAM}</td>
               <td>{product.storage}</td>
-              <td />
               <td>
                 <img src="../src/assets/view.png" alt="view" />
               </td>
