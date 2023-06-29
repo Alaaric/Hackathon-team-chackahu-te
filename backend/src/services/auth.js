@@ -33,9 +33,17 @@ const verifyPassword = (req, res) => {
           expiresIn: "1h",
         });
         delete req.user.hpassword;
-        res.send({ token, user: req.user });
+        res
+          .status(200)
+          .cookie("user_token", token, {
+            httpOnly: true,
+            expires: new Date(Date.now() + 1000 * 60 * 60),
+          })
+          .send({ token, user: req.user });
       } else {
-        res.status(401).send({ message: "non connecté" });
+        res
+          .status(401)
+          .send({ message: "Les informations renseignées sont incorrect" });
       }
     })
     .catch((err) => {
