@@ -32,12 +32,12 @@ export default function Login() {
           setUsers(res.data.user);
 
           setTimeout(() => {
-            navigate("/admin/a");
+            navigate("/admin/dashboard");
           }, 500);
         } else {
           setUsers(res.data.user);
           setTimeout(() => {
-            navigate("/*");
+            navigate("/connected/calculator");
           }, 500);
         }
       })

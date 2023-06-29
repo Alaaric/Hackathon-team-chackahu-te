@@ -1,23 +1,23 @@
 import { useContext } from "react";
-import { Navigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Navigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 
-function ProtectedRoute({ children }) {
+function AdminProtectedRoute({ children }) {
   const { users } = useContext(UserContext);
 
-  if (!users) {
+  if (!users || users.role_id !== 2) {
     return <Navigate to="/" replace />;
   }
 
   return children;
 }
 
-ProtectedRoute.propTypes = {
+AdminProtectedRoute.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
 };
 
-export default ProtectedRoute;
+export default AdminProtectedRoute;

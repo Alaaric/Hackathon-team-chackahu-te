@@ -6,24 +6,46 @@ import ResetPassword from "./components/ResetPassword";
 import Faq from "./pages/Faq";
 import "./styles.scss";
 import Calculator from "./pages/calculator";
-
+import AdminProtectedRoutes from "./layouts/AdminProtectedRoutes";
 import ProtectedRoute from "./layouts/ProtectedRoute";
+import NavLayout from "./layouts/NavLayout";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
+          {/* PUBLIC ROUTES */}
           <Route path="/" element={<Login />} />
           <Route path="*" element={<WrongPage />} />
-          <Route path="/calculator" element={<Calculator />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/users/:id" element={<Admin />} />
-          <Route path="/admin" element={<ProtectedRoute />}>
-            <Route path="a" element={<Admin />} />
-          </Route>
           <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route path="/faq" element={<Faq />} />
+
+          {/* LOGGED USER ROUTES */}
+          <Route
+            path="/connected"
+            element={
+              <ProtectedRoute>
+                <NavLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="calculator" element={<Calculator />} />
+            <Route path="faq" element={<Faq />} />
+          </Route>
+
+          {/* LOGGED ADMIN ROUTES */}
+          <Route
+            path="/admin"
+            element={
+              <AdminProtectedRoutes>
+                <NavLayout />
+              </AdminProtectedRoutes>
+            }
+          >
+            <Route path="dashboard" element={<Admin />} />
+            <Route path="calculator" element={<Calculator />} />
+            <Route path="faq" element={<Faq />} />
+          </Route>
         </Routes>
       </Router>
     </div>
