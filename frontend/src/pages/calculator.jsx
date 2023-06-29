@@ -7,7 +7,7 @@ export default function Calculator() {
   const [ramList, setRamList] = useState([]);
   const [storageList, setStorageList] = useState();
   const [stateList, setStateList] = useState();
-  const [categoryList, setCategoryList] = useState();
+  const [categoryList, setCategoryList] = useState([]);
   const [osList, setOsList] = useState();
   const [brandList, setBrandList] = useState();
   const [modelList, setModelList] = useState();
@@ -17,10 +17,11 @@ export default function Calculator() {
   const [os, setOs] = useState();
   const [brands, setBrands] = useState();
   const [models, setModels] = useState();
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState();
   const [location, setLocation] = useState();
   const [color, setColor] = useState();
   const [descrition, setDescrition] = useState();
+  const [categoryId, setCategoryId] = useState();
   const { users } = useContext(UserContext);
 
   useEffect(() => {
@@ -86,6 +87,12 @@ export default function Calculator() {
       .catch((err) => console.error(err));
   }, []);
 
+  useEffect(() => {
+    if (categoryList.length > 1) {
+      setCategoryId(categoryList.find((cat) => cat.category === result[0]).id);
+    }
+  }, [result]);
+
   const HandlePostProduct = () => {
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/stock_products`, {
@@ -99,7 +106,7 @@ export default function Calculator() {
         model: models,
         location,
         price: result[1],
-        category: result[0],
+        category: categoryId,
         descrition,
       })
       .catch((err) => console.error(err));
@@ -297,27 +304,26 @@ export default function Calculator() {
           </label>
         )}
         {users.role_id === 2 && (
-          <label htmlFor="file" className="label-file">
-            Choisir une photo
-            <input type="file" className="input-file" id="file" />
+          <label htmlFor="color">
+            Photo:
+            <br />
+            <input type="file" className="btnGrading" />
           </label>
         )}
-        <div className="btnGradingAndStockContainer">
-          <button className="btnGrading" type="submit">
+        <button className="btnGrading" type="submit">
+          {" "}
+          évaluer
+        </button>
+        {users.role_id === 2 && (
+          <button
+            className="btnGrading"
+            type="button"
+            onClick={HandlePostProduct}
+          >
             {" "}
-            évaluer
+            Ajouter au stock
           </button>
-          {users.role_id === 2 && (
-            <button
-              className="btnAddStock"
-              type="button"
-              onClick={HandlePostProduct}
-            >
-              {" "}
-              Ajouter au stock
-            </button>
-          )}
-        </div>
+        )}
       </form>
       {result && (
         <div className="priceCategoryContainer">
