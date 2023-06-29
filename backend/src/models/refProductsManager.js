@@ -7,7 +7,7 @@ class productsManager extends AbstractManager {
 
   getAllRefPhones() {
     return this.database.query(
-      `select brand, m.name model, screen_size, network, os.name os,
+      `select id, brand, m.name model, screen_size, network, os.name os,
       RAMs.value ram, s.value storage from ${this.table}
       inner join brands on brand_id = brands.id
       inner join models as m on model_id = m.id
