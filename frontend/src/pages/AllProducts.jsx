@@ -6,7 +6,7 @@ export default function AllProducts() {
   const [allProducts, setAllProducts] = useState([]);
   const [allBrands, setAllBrands] = useState([]);
   const [allModels, setAllModels] = useState([]);
-  // const [allLocations, setAllLocations] = useState([]);
+  const [allLocations, setAllLocations] = useState([]);
 
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
@@ -35,12 +35,12 @@ export default function AllProducts() {
   }, []);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/models`)
-      .then((res) => setAllModels(res.data))
+      .get(`${import.meta.env.VITE_BACKEND_URL}/locations`)
+      .then((res) => setAllLocations(res.data))
       .catch((err) => console.error(err));
   }, []);
 
-  console.info(modelBox);
+  console.info(allProducts[0]);
   return (
     <div className="global-container-products">
       <div className="filter-container">
@@ -88,10 +88,10 @@ export default function AllProducts() {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
-          {allProducts.map((product) => (
-            <div className="checkbox-container">
+          {allLocations.map((l) => (
+            <div className="checkbox-container" key={l.id}>
               <input type="checkbox" id="localisation" name="localisation" />
-              {product.location}
+              {l.location}
             </div>
           ))}
         </div>
