@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 
 function StockProductsList({ tab }) {
   const [stockProducts, setStockProducts] = useState([]);
+  const [modal, setModal] = useState(false);
+  const [row, setRow] = useState(0);
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     axios
@@ -14,10 +17,13 @@ function StockProductsList({ tab }) {
 
   return (
     <div className={tab === 3 ? "display" : "hide"}>
-      <button type="button">Ajouter un produit</button>
+      <button type="button" onClick={() => setModal(!modal)}>
+        Ajouter un produit
+      </button>
       <table>
         <thead>
           <tr>
+            <th> </th>
             <th>Marque</th>
             <th>Modèle</th>
             <th>Categorie</th>
@@ -28,20 +34,32 @@ function StockProductsList({ tab }) {
         <tbody>
           {stockProducts &&
             stockProducts.map((product) => (
-              <tr key={product.id}>
+              <tr
+                key={product.id}
+                className={row === product.id ? "open" : "close"}
+              >
                 <td>
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${product.photo}`}
+                    src={`../src/${product.photo}`}
                     alt="phone"
+                    style={{ width: "45px" }}
                   />
-                  {product.brand_id}
                 </td>
+                <td>{product.brand}</td>
                 <td>{product.model}</td>
                 <td>{product.category}</td>
                 <td>{product.state}</td>
                 <td>{product.price}€</td>
                 <td>
-                  <img src="../src/assets/view.png" alt="view" />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setRow(product.id);
+                      setToggle(!toggle);
+                    }}
+                  >
+                    <img src="../src/assets/view.png" alt="view" />
+                  </button>
                 </td>
               </tr>
             ))}
