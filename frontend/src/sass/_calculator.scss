@@ -52,12 +52,94 @@
         padding: 0 20px;
       }
     }
-  }
 
+    .label-file {
+      cursor: pointer;
+      color: var(--redColor);
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid var(--redColor);
+      border-radius: 15px;
+      padding: 10px 0;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        color: white;
+        background-color: var(--redColor);
+        transform: scale(1.03);
+      }
+    }
+
+    .input-file {
+      display: none;
+    }
+
+    .btnGradingAndStockContainer {
+      display: flex;
+      flex-direction: column;
+
+      .btnGrading,
+      .btnAddStock {
+        margin: 10px 20px;
+      }
+
+      .btnAddStock {
+        background: var(--yellowColor);
+      }
+    }
+  }
+}
+
+.priceCategoryContainer {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 30px 0;
+
+  .priceBox,
+  .categoryBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+
+    .price,
+    .category {
+      background: var(--lightBleuColor);
+      width: 50%;
+      max-width: 150px;
+      height: 50px;
+      border-radius: 15px 0 0 15px;
+      padding: 10px 20px 10px 20px;
+      color: white;
+      font-weight: 600;
+    }
+
+    .priceResult,
+    .categoryResult {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--grayColor);
+      backdrop-filter: blur(2px);
+      width: 50%;
+      max-width: 100px;
+      height: 70px;
+      border-radius: 0 15px 15px 0;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
   .priceCategoryContainer {
     width: 90%;
+    max-width: 700px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     margin: 30px 0;
@@ -66,54 +148,12 @@
     .categoryBox {
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 80%;
-
-      .price,
-      .category {
-        background: var(--lightBleuColor);
-        width: 50%;
-        max-width: 150px;
-        height: 50px;
-        border-radius: 15px 0 0 15px;
-        padding: 10px 20px 10px 20px;
-        color: white;
-        font-weight: 600;
-      }
-
-      .priceResult,
-      .categoryResult {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: var(--grayColor);
-        backdrop-filter: blur(2px);
-        width: 50%;
-        max-width: 100px;
-        height: 70px;
-        border-radius: 0 15px 15px 0;
-        font-weight: 600;
-        font-size: 1.5rem;
-      }
+      width: 30%;
     }
   }
 
-  @media screen and (min-width: 768px) {
-    .priceCategoryContainer {
-      width: 90%;
-      max-width: 700px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      margin: 30px 0;
-
-      .priceBox,
-      .categoryBox {
-        display: flex;
-        align-items: center;
-        width: 30%;
-      }
-    }
+  .btnGradingAndStockContainer {
+    display: flex;
+    flex-direction: row;
   }
 }
