@@ -276,11 +276,23 @@ export default function Calculator() {
         )}
         {users.role_id === 2 && (
           <label htmlFor="descrition">
-            description:
+            Description:
             <br />
             <textarea
+              className="description"
               id="description"
               onChange={(e) => setDescrition(e.target.value)}
+              style={{
+                resize: "none",
+                width: "95%",
+                height: "80px",
+                borderRadius: "0 0 15px 0",
+                borderRight: "5px solid",
+                borderBottom: "2px solid",
+                padding: "10px",
+                fontSize: "1rem",
+                fontFamily: "Raleway",
+              }}
             />
           </label>
         )}
