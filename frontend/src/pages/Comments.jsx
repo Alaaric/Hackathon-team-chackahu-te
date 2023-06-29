@@ -34,7 +34,7 @@ export default function Comments() {
       <h1>Commentaires</h1>
       <div className="comments-container">
         {comments.map((comment) => (
-          <div className="comment-information">
+          <div className="comment-information" key={comment.id}>
             <h2>{comment.title}</h2>
             <p>
               {comment.content} <br />
