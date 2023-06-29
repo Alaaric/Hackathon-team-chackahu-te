@@ -1,5 +1,5 @@
 import { PropTypes } from "prop-types";
-import image from "../../../backend/public/assets/images/galaxyNote10.jpg";
+import image from "../assets/galaxyNote10.jpg";
 
 function ModalProduct({ product, closeModal }) {
   return (
