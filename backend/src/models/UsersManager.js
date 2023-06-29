@@ -6,7 +6,10 @@ class usersManager extends AbstractManager {
   }
 
   selectByEmail(email) {
-    return this.database.query("select * from users where email = ?", [email]);
+    return this.database.query(
+      "select id, firstname, lastname, hpassword from users where email = ?",
+      [email]
+    );
   }
 
   insert(user) {
