@@ -19,6 +19,7 @@
     li {
       list-style: none;
       button {
+        width: 160px;
         padding: 5px;
         border-radius: 10px 10px 0 0;
         background-color: var(--lightBleuColor);
@@ -28,6 +29,7 @@
         cursor: pointer;
         transition: 0.3s ease;
         box-shadow: 3px -1px 5px 0px rgba(0, 0, 0, 0.4);
+        margin-left: 12px;
 
         &:hover {
           transform: scale(1.1);

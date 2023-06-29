@@ -1,19 +1,30 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
 
 export default function NavModal() {
+  const { users } = useContext(UserContext);
   return (
     <nav>
       <div>
-        <Link to="/calculator">
+        <Link
+          to={users.role_id === 2 ? "/admin/products" : "/connected/products"}
+        >
+          <p>Stock</p>
+        </Link>
+        <Link
+          to={
+            users.role_id === 2 ? "/admin/calculator" : "/connected/calculator"
+          }
+        >
           <p>Estimation</p>
         </Link>
-        <Link to="/admin">
-          <p>Admin</p>
-        </Link>
-        <Link to="*">
-          <p>Test 404</p>
-        </Link>
-        <Link to="/Faq">
+        {users.role_id === 2 && (
+          <Link to="/admin/dashboard">
+            <p>Admin</p>
+          </Link>
+        )}
+        <Link to={users.role_id === 2 ? "/admin/faq" : "/connected/faq"}>
           <p>FAQ</p>
         </Link>
 
