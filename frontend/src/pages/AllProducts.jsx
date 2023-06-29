@@ -16,7 +16,7 @@ export default function AllProducts() {
   const [model, setModel] = useState("");
   const [location, setLocation] = useState("");
 
-  const [modelBox, setModelBox] = useState("");
+  // const [modelBox, setModelBox] = useState("");
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/stock_products`)
@@ -43,7 +43,7 @@ export default function AllProducts() {
       .then((res) => setAllLocations(res.data))
       .catch((err) => console.error(err));
   }, []);
-  console.info(allProducts);
+  console.info(location);
   return (
     <div className="global-container-products">
       {showModal && (
@@ -81,7 +81,7 @@ export default function AllProducts() {
                 id="model"
                 name="model"
                 value={m.name}
-                onChange={(e) => setModelBox(e.target.value)}
+                // onChange={(e) => setModelBox(e.target.value)}
               />
               {m.name}
             </div>
@@ -107,10 +107,9 @@ export default function AllProducts() {
         {allProducts
           .filter((e) => {
             return (
-              (e.brand.toLowerCase().includes(brand) &&
-                e.model.toLowerCase().includes(model) &&
-                e.location.toLowerCase().includes(location)) ||
-              e.model === modelBox
+              e.brand.toLowerCase().includes(brand) &&
+              e.model.toLowerCase().includes(model) &&
+              e.location.toLowerCase().includes(location)
             );
           })
           .map((product) => (
