@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import AddUser from "./AddUser";
+import UpdateUser from "./UpdateUser";
 
 function UsersList({ tab }) {
+  const [showAddUser, setShowAddUser] = useState(false);
+  const [showUpdateUser, setShowUpdateUser] = useState(false);
   const [users, setUsers] = useState([]);
   useEffect(() => {
     axios
@@ -15,7 +19,11 @@ function UsersList({ tab }) {
 
   return (
     <div className={tab === 1 ? "display" : "hide"}>
-      <button type="button">Ajouter un utilisateur</button>
+      {showAddUser && <AddUser setShowAddUser={setShowAddUser} />}
+      {showUpdateUser && <UpdateUser setShowUpdateUser={setShowUpdateUser} />}
+      <button type="button" onClick={() => setShowAddUser(true)}>
+        Ajouter un utilisateur
+      </button>
       <table>
         <thead>
           <tr>
@@ -34,7 +42,9 @@ function UsersList({ tab }) {
                 <td>{user.email}</td>
                 <td>{user.role_id}</td>
                 <td>
-                  <img src="../src/assets/view.png" alt="" />
+                  <button type="button" onClick={() => setShowUpdateUser(true)}>
+                    <img src="../src/assets/view.png" alt="" />
+                  </button>
                 </td>
               </tr>
             ))}
