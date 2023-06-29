@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../sass/admin.scss";
 import UsersList from "../components/UsersList";
 import RefProductsList from "../components/RefProductsList";
 import StockProductsList from "../components/StockProductsList";

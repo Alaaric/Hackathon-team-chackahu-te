@@ -17,14 +17,14 @@ function UsersList({ tab }) {
     <div className={tab === 1 ? "display" : "hide"}>
       <button type="button">Ajouter un utilisateur</button>
       <table>
-        <tr>
-          <th>
+        <thead>
+          <tr>
             <th>Nom</th>
             <th>Prénom</th>
             <th>Email</th>
             <th>Rôle</th>
-          </th>
-        </tr>
+          </tr>
+        </thead>
         <tbody>
           {users &&
             users.map((user) => (
@@ -34,15 +34,7 @@ function UsersList({ tab }) {
                 <td>{user.email}</td>
                 <td>{user.role_id}</td>
                 <td>
-                  <img
-                    src={`${
-                      import.meta.env.VITE_BACKEND_URL
-                    }/assets/images/view.png`}
-                    alt=""
-                  />
-                </td>
-                <td>
-                  <img src="../src/assets/view.png" alt="view" />
+                  <img src="../src/assets/view.png" alt="" />
                 </td>
               </tr>
             ))}

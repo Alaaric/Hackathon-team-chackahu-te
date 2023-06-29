@@ -8,7 +8,6 @@
   flex-direction: column;
   align-items: center;
   
-
   .faqImg {
     width: clamp(320px, 40%, 800px);
     height: auto;
@@ -78,5 +77,4 @@
       background:rgba(57, 188, 208, 0.35);
       backdrop-filter: blur(2px);
     }
-
 }
