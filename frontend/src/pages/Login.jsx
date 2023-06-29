@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 
 import LogoEmmaus from "../assets/logoEmmaus.png";
@@ -9,6 +10,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const getUser = (e) => {
     e.preventDefault();
@@ -25,8 +28,17 @@ export default function Login() {
       .then((res) => {
         if (res.data.message) {
           setMessage(res.data.message);
+        } else if (res.data.user.role_id === 2) {
+          setUsers(res.data.user);
+
+          setTimeout(() => {
+            navigate("/admin/a");
+          }, 500);
         } else {
           setUsers(res.data.user);
+          setTimeout(() => {
+            navigate("/*");
+          }, 500);
         }
       })
       .catch((err) => console.error(err));
