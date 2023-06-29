@@ -1,4 +1,7 @@
+const jwt = require("jsonwebtoken");
 const models = require("../models");
+
+const secret = process.env.SECRET_MAIL;
 
 const browse = (req, res) => {
   models.user
@@ -69,6 +72,30 @@ const edit = (req, res) => {
     });
 };
 
+const editUserPassword = (req, res) => {
+  const user = req.body;
+
+  // TODO validations (length, format...)
+  jwt.verify(user.tok, secret, { expiresIn: "1h" }, (err) => {
+    if (err) {
+      console.info("proble");
+    } else
+      models.user
+        .updateUserPassword(user)
+        .then(([result]) => {
+          if (result.affectedRows === 0) {
+            res.sendStatus(404);
+          } else {
+            res.sendStatus(204);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          res.sendStatus(500);
+        });
+  });
+};
+
 const add = (req, res) => {
   const user = req.body;
 
@@ -77,7 +104,8 @@ const add = (req, res) => {
   models.user
     .insert(user)
     .then(([result]) => {
-      res.location(`/users/${result.insertId}`).sendStatus(201);
+      // res.location(`/users/${result.insertId}`).sendStatus(201);
+      res.status(201).json([result]);
     })
     .catch((err) => {
       console.error(err);
@@ -108,4 +136,5 @@ module.exports = {
   add,
   destroy,
   getUserByEmail,
+  editUserPassword,
 };

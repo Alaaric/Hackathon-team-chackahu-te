@@ -32,8 +32,8 @@ export default function Header() {
         <Link to="/">
           <p>et la le 3</p>
         </Link>
-        <Link to="/">
-          <p>Ici c'est 4</p>
+        <Link to="/Faq">
+          <p>FAQ</p>
         </Link>
 
         <button className="btnDisconnect" type="button">

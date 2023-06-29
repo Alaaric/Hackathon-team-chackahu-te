@@ -1,0 +1,159 @@
+.loginContainer {
+  z-index: 10;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoEmmausLogin {
+  margin: 0 0 20px 0;
+  width: clamp(300px, 40%, 500px);
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    background: rgba(235, 235, 235, 0.6);
+    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.7rem;
+
+      input {
+        border-radius: 5px;
+        font-size: 1.2rem;
+        height: 2rem;
+        border: none;
+        padding: 5px 10px;
+      }
+    }
+    .btnConnectLogin {
+      height: 40px;
+      border-radius: 15px;
+      border: none;
+      background: var(--lightBleuColor);
+      font-weight: 600;
+      color: white;
+      margin: 10px 0 0 0;
+      padding: 0 20px;
+      font-size: 1rem;
+      transition: 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.bgLoginContainer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.bgOneLogin,
+.bgTwoLogin,
+.bgThreeLogin {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.bgOneLogin {
+  top: 0;
+  width: 80px;
+  height: 80px;
+  background: var(--redColor);
+  animation: moveBall 17s infinite;
+}
+
+.bgTwoLogin {
+  top: 15%;
+  right: 25%;
+  width: 100px;
+  height: 100px;
+  background: var(--lightBleuColor);
+  animation: moveBall2 23s infinite;
+  animation-delay: 0.5s;
+}
+
+.bgThreeLogin {
+  bottom: 5%;
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  background: var(--yellowColor);
+  animation: moveBall3 19s infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes moveBall {
+  0% {
+    transform: translate(-50%, 25%);
+  }
+  25% {
+    transform: translate(300%, 200%);
+  }
+  50% {
+    transform: translate(100%, 30%);
+  }
+  75% {
+    transform: translate(200%, 400%);
+  }
+  100% {
+    transform: translate(-50%, 25%);
+  }
+}
+
+@keyframes moveBall2 {
+  0% {
+    transform: translate(-60%, 40%);
+  }
+  25% {
+    transform: translate(400%, 180%);
+  }
+  50% {
+    transform: translate(100%, 25%);
+  }
+  75% {
+    transform: translate(220%, 0%);
+  }
+  100% {
+    transform: translate(-60%, 40%);
+  }
+}
+
+@keyframes moveBall3 {
+  0% {
+    transform: translate(30%, 60%);
+  }
+  25% {
+    transform: translate(-100%, -50%);
+  }
+  50% {
+    transform: translate(100%, 30%);
+  }
+  75% {
+    transform: translate(150%, -200%);
+  }
+  100% {
+    transform: translate(30%, 60%);
+  }
+}

@@ -29,6 +29,10 @@ export default function Admin() {
       <UsersList tab={tab} />
       <RefProductsList tab={tab} />
       <StockProductsList tab={tab} />
+
+      <h1>Admin</h1>
+      <AddUser />
+      <UpdateUser />
     </div>
   );
 }

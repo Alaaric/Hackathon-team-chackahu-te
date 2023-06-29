@@ -54,13 +54,13 @@ INSERT INTO models (name, screen_size, network) VALUES
 
 CREATE TABLE RAMs (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  value VARCHAR(254) NOT NULL
+  value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 INSERT INTO RAMs (value) VALUES (1), (2), (4), (8), (12), (16);  
 
 CREATE TABLE storages (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  value VARCHAR(254) NOT NULL
+  value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 INSERT INTO storages (value) VALUES (16), (32), (64), (128), (256), (512);  
 
@@ -81,8 +81,8 @@ CREATE TABLE locations (
   location VARCHAR(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 INSERT INTO locations (location) VALUES ("Paris"), ("Essone"), ("Créteil"), ("Saint Denis"), ("Toulouse"),
-("Lille"), ("Roubaix"), ("Pas de Calais"), ("Aisne"), ("Strasbourg"), ("Lyon"), ("Grenoble"), ("Indre"), ("Loiret"),
-("Bordeaux"), ("Marseille"), ("Hautes Alpes");
+("Lille"), ("Roubaix"), ("Pas de Calais"), ("Aisne"), ("Strasbourg"), ("Lyon"), ("Grenoble"), ("Indre"),
+("Loiret"), ("Bordeaux"), ("Marseille"), ("Hautes Alpes");
 
 CREATE TABLE ref_products (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -103,6 +103,7 @@ VALUES
 (1, 10, 1, 3, 4, "/assets/images/galaxyNote10.jpg"),
 (2, 11, 2, 3, 3, "/assets/images/iphone13.jpg");
 
+-- creation of stock products info tables --
 CREATE TABLE stock_products (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id int NOT NULL, FOREIGN KEY (user_id) REFERENCES users(id),
@@ -117,7 +118,7 @@ CREATE TABLE stock_products (
   category_id int NOT NULL, FOREIGN KEY (category_id) REFERENCES categories(id),
   accessories TINYINT(1) NOT NULL,
   photo VARCHAR(254) DEFAULT NULL,
-  price VARCHAR(254) NOT NULL,
+  price FLOAT NOT NULL,
   location_id int NOT NULL, FOREIGN KEY (location_id) REFERENCES locations(id),
   description varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -125,10 +126,10 @@ CREATE TABLE stock_products (
 INSERT INTO stock_products (user_id, creation_date, color, brand_id, model_id, os_id, RAM_id, storage_id,
 state_id, category_id, accessories, price, location_id, description) 
 VALUES  
-(1, '2023-06-28 13:59:00.000000', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, "27.00", 1, "description ..."), 
-(1, '2023-06-28 14:09:00.000000', "rose", 1, 2, 1, 4, 5, 2, 4, 1, "25.00", 2, "description ..."), 
-(1, '2023-06-28 14:14:00.000000', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, "48.00", 5,"description ..."), 
-(1, '2023-06-28 14:18:00.000000', "orange", 1, 5, 1, 4, 5, 1, 4, 1, "25.00", 8, "description ..."),   
-(1, '2023-06-28 14:39:00.000000', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, "37.00", 1, "description ..."), 
-(1, '2023-06-28 14:45:00.000000', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, "50.00", 5, "description ...");
+(1, '2023-06-28 13:59:00.000000', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, 27.00, 1, "description ..."), 
+(1, '2023-06-28 14:09:00.000000', "rose", 1, 2, 1, 4, 5, 2, 4, 1, 25.00, 2, "description ..."), 
+(1, '2023-06-28 14:14:00.000000', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, 48.00, 5,"description ..."), 
+(1, '2023-06-28 14:18:00.000000', "orange", 1, 5, 1, 4, 5, 1, 4, 1, 25.00, 8, "description ..."),   
+(1, '2023-06-28 14:39:00.000000', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, 37.00, 1, "description ..."), 
+(1, '2023-06-28 14:45:00.000000', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, 50.00, 5, "description ...");
 

@@ -4,6 +4,7 @@ const router = express.Router();
 
 const refProductsControllers = require("./controllers/refProductsControllers");
 const stockProductsControllers = require("./controllers/stockProductsControllers");
+const mailControllers = require("./controllers/mailControllers");
 
 const usersControllers = require("./controllers/usersControllers");
 const {
@@ -24,6 +25,9 @@ router.get("/ref_products/:id", refProductsControllers.read);
 
 router.get("/stock_products", stockProductsControllers.browse);
 router.get("/stock_products/:id", stockProductsControllers.read);
+
+router.post("/test", mailControllers.sendMailById);
+router.put("/resetpassword", hashPassword, usersControllers.editUserPassword);
 
 router.use(verifyToken);
 router.put("/ref_products/:id", refProductsControllers.edit);
