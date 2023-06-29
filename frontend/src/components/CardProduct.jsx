@@ -1,5 +1,4 @@
 import { PropTypes } from "prop-types";
-import image from "../assets/galaxyNote10.jpg";
 
 export default function CardProduct({ setValueModal, openModal, product }) {
   return (
@@ -12,7 +11,7 @@ export default function CardProduct({ setValueModal, openModal, product }) {
       }}
     >
       <div className="image-container">
-        <img src={image} alt="pic tel" />
+        <img src={`../src/${product.photo}`} alt="pic tel" />
       </div>
       <div className="informations-container">
         <div className="description-container">

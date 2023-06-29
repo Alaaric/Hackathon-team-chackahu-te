@@ -134,8 +134,8 @@ INSERT INTO stock_products (user_id, creation_date, color, brand_id, model_id, o
 state_id, category_id, accessories, photo, price, location_id, description) 
 VALUES  
 (1, '2023-06-28 13:59:00.000000', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, "/assets/galaxys9.jpg", 27.00, 1, "description ..."), 
-(1, '2023-06-28 14:09:00.000000', "rose", 1, 2, 1, 4, 5, 2, 4, 1, "/assets/galaxys20.jpg", 25.00, 2, "description ..."), 
-(1, '2023-06-28 14:14:00.000000', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, "/assets/galaxys21.jpg", 48.00, 5,"description ..."), 
+(1, '2023-06-28 14:09:00.000000', "rose", 1, 2, 1, 4, 5, 2, 2, 1, "/assets/galaxys20.jpg", 25.00, 2, "description ..."), 
+(1, '2023-06-28 14:14:00.000000', "Violet fantôme", 1, 4, 1, 4, 5, 3, 1, 1, "/assets/galaxys21.jpg", 48.00, 5,"description ..."), 
 (1, '2023-06-28 14:18:00.000000', "orange", 1, 5, 1, 4, 5, 1, 4, 1, "/assets/galaxyA40.jpg", 25.00, 8, "description ..."),   
-(1, '2023-06-28 14:39:00.000000', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, "/assets/galaxyNote10.jpg", 37.00, 1, "description ..."), 
-(1, '2023-06-28 14:45:00.000000', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, "/assets/iphone13.jpg", 50.00, 5, "description ...");
+(1, '2023-06-28 14:39:00.000000', "Argent stellaire", 1, 10, 1, 4, 5, 2, 3, 1, "/assets/galaxyNote10.jpg", 37.00, 1, "description ..."), 
+(1, '2023-06-28 14:45:00.000000', "Bleu", 2, 11, 2, 3, 4, 3, 3, 1, "/assets/iphone13.jpg", 50.00, 5, "description ...");

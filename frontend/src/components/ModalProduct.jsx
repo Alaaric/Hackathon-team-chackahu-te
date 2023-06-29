@@ -1,5 +1,4 @@
 import { PropTypes } from "prop-types";
-import image from "../assets/galaxyNote10.jpg";
 
 function ModalProduct({ product, closeModal }) {
   let statusColors = {
@@ -47,7 +46,7 @@ function ModalProduct({ product, closeModal }) {
               <h1>{product.model}</h1>
             </div>
             <div className="image-container">
-              <img src={image} alt="" />
+              <img src={`../src/${product.photo}`} alt="" />
             </div>
           </div>
           <div className="description-modal-container">
