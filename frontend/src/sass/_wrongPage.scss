@@ -110,13 +110,14 @@
     }
   }
 
-
   &:hover {
     transform: scale(1.1);
   }
 }
 
-.bgOne, .bgTwo, .bgThree {
+.bgOne,
+.bgTwo,
+.bgThree {
   position: absolute;
   border-radius: 50%;
 }
