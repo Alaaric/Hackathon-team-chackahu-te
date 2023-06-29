@@ -29,7 +29,6 @@
       }
     }
     tbody {
-      
       tr {
         height: 70px;
         border: 1px solid var(--bleuColor);
@@ -37,11 +36,10 @@
         padding-left: 10px;
         color: #4249af;
         backdrop-filter: blur(3px);
-        
+
         td {
           padding: 5px 0 5px 20px;
           font-size: 1rem;
-
         }
       }
     }
