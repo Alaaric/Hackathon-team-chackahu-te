@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
 
+import LogoEmmaus from "../assets/logoEmmaus.png";
+
 export default function Login() {
   const { setUsers } = useContext(UserContext);
   const [email, setEmail] = useState("");
@@ -31,27 +33,41 @@ export default function Login() {
   };
 
   return (
-    <div className="login">
-      <form onSubmit={getUser}>
-        <label htmlFor="emailInput">
-          Email:
-          <input
-            type="email"
-            id="emailInput"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label htmlFor="passwordInput">
-          Mot de passe:
-          <input
-            type="password"
-            id="passwordInput"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit">Se connecter</button>
-      </form>
-      {message && <div>{message}</div>}
-    </div>
+    <>
+      <div className="bgLoginContainer">
+        <div className="bgOneLogin"> </div>
+        <div className="bgTwoLogin"> </div>
+        <div className="bgThreeLogin"> </div>
+      </div>
+      <div className="loginContainer">
+        <img className="logoEmmausLogin" src={LogoEmmaus} alt="logoEmmaus" />
+        <div className="login">
+          <form onSubmit={getUser}>
+            <label htmlFor="emailInput">
+              Email:
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="email@example.com"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+            <label htmlFor="passwordInput">
+              Mot de passe:
+              <input
+                type="password"
+                id="passwordInput"
+                placeholder="************"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </label>
+            <button className="btnConnectLogin" type="submit">
+              Se connecter
+            </button>
+          </form>
+          {message && <div>{message}</div>}
+        </div>
+      </div>
+    </>
   );
 }
