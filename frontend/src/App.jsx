@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Login from "./pages/Login";
 import WrongPage from "./pages/WrongPage";
 import Admin from "./pages/Admin";
 import Contact from "./pages/Contact";
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="*" element={<WrongPage />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/users/:id" element={<Admin />} />
