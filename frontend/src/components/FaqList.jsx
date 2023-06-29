@@ -8,6 +8,30 @@ function FaqList() {
       <div className="detailsContainer">
         <details className="details1">
           <summary>
+            Comment puis-je consulter le stock des smartphones disponibles?
+          </summary>
+          <p>Pour obtenir l'état du stock, suivez ces étapes :</p>
+          <ol>
+            <li>
+              Connectez-vous à votre profil bénévole puis cliquez sur "Stock"
+              dans la barre de navigation.
+            </li>
+            <li>
+              En fonction de la sélection de la marque, du modèle et de la
+              localisation, vous aurez alors l'état du stock.
+            </li>
+            <li>
+              Si par exemple, vous vous connaitre la quantité de Iphone 13 sur
+              le site de Paris, vous séléectionnez: Apple{">"}Iphone13{">"}Paris
+            </li>
+            <li>
+              Vous obtiendrez ensuite un prix conseillé de revente ainsi que la
+              catégorie du produit.
+            </li>
+          </ol>
+        </details>
+        <details className="details2">
+          <summary>
             Comment puis-je obtenir une estimation de revente suite à un don de
             smartphones?
           </summary>
@@ -15,11 +39,11 @@ function FaqList() {
           <ol>
             <li>
               Connectez-vous à votre profil bénévole, vous serez ensuite
-              automatiquement redirigé vers le calculator
+              automatiquement redirigé vers le calculator.
             </li>
             <li>
-              Sélectionnez ensuite la marque, le modèle, l'OS, la RAM, le
-              stockage ainsi que l'état du smartphone
+              Sélectionnez ensuite l'OS, la marque, le modèle, la RAM, le
+              stockage ainsi que l'état du smartphone.
             </li>
             <li>Cliquez ensuite sur "Evaluer".</li>
             <li>
@@ -28,7 +52,7 @@ function FaqList() {
             </li>
           </ol>
         </details>
-        <details className="details2">
+        <details className="details3">
           <summary>
             Comment puis-je ajouter un smartphone reconditionné dans la base de
             données ?
@@ -52,7 +76,7 @@ function FaqList() {
             </li>
           </ol>
         </details>
-        <details className="details3">
+        <details className="details4">
           <summary>
             Comment puis-je ajouter un utilisateur pour consulter ou gérer la
             base de données ?
@@ -81,7 +105,7 @@ function FaqList() {
             </li>
           </ol>
         </details>
-        <details className="details4">
+        <details className="details5">
           <summary>
             Comment puis-je modifier/supprimer un utilisateur de la base de
             données?
@@ -108,7 +132,7 @@ function FaqList() {
             </li>
           </ol>
         </details>
-        <details className="details5">
+        <details className="details6">
           <summary>
             Comment puis-je ajouter une référence de smartphones dans la base de
             données?
@@ -130,12 +154,6 @@ function FaqList() {
             </li>
           </ol>
         </details>
-        {/* <details className="details6">
-          <summary>
-            J'ai un PC à 5000€ mais puis-je avoir un smartphone gratuit?
-          </summary>
-          <p>Here are some additional details that you can toggle.</p>
-        </details> */}
       </div>
     </div>
   );
