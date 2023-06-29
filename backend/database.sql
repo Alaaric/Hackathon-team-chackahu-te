@@ -59,14 +59,14 @@ CREATE TABLE RAMs (
   value INT NOT NULL,
   calculator_value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO RAMs (value, calculator_value) VALUES (1,20), (2,30), (4,40), (8,600), (12,80), (16,100);  
+INSERT INTO RAMs (value, calculator_value) VALUES (1,20), (2,30), (3,40), (4,50), (8,70), (12,90), (16,110);  
 
 CREATE TABLE storages (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   value INT NOT NULL,
   calculator_value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO storages (value, calculator_value) VALUES (16,20), (32,30), (64,40), (128,60), (256,80), (512,100), (1000, 120);  
+INSERT INTO storages (value, calculator_value) VALUES (16,20), (32,30), (64,40), (128,60), (256,80), (512,100), (1024, 120);  
 
 CREATE TABLE states (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -133,9 +133,9 @@ CREATE TABLE stock_products (
 INSERT INTO stock_products (user_id, creation_date, color, brand_id, model_id, os_id, RAM_id, storage_id,
 state_id, category_id, accessories, photo, price, location_id, description) 
 VALUES  
-(1, '2023-06-28 13:59:00.000000', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, "/assets/galaxys9.jpg", 27.00, 1, "description ..."), 
-(1, '2023-06-28 14:09:00.000000', "rose", 1, 2, 1, 4, 5, 2, 4, 1, "/assets/galaxys20.jpg", 25.00, 2, "description ..."), 
-(1, '2023-06-28 14:14:00.000000', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, "/assets/galaxys21.jpg", 48.00, 5,"description ..."), 
-(1, '2023-06-28 14:18:00.000000', "orange", 1, 5, 1, 4, 5, 1, 4, 1, "/assets/galaxyA40.jpg", 25.00, 8, "description ..."),   
-(1, '2023-06-28 14:39:00.000000', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, "/assets/galaxyNote10.jpg", 37.00, 1, "description ..."), 
-(1, '2023-06-28 14:45:00.000000', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, "/assets/iphone13.jpg", 50.00, 5, "description ...");
+(1, '2023-06-28T13:59:00', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, "/assets/galaxys9.jpg", 27.00, 1, "description ..."), 
+(1, '2023-06-28T14:09:00', "rose", 1, 2, 1, 4, 5, 2, 4, 1, "/assets/galaxys20.jpg", 25.00, 2, "description ..."), 
+(1, '2023-06-28T14:14:00', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, "/assets/galaxys21.jpg", 48.00, 5,"description ..."), 
+(1, '2023-06-28T14:18:00', "orange", 1, 5, 1, 4, 5, 1, 4, 1, "/assets/galaxyA40.jpg", 25.00, 8, "description ..."),   
+(1, '2023-06-28T14:39:00', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, "/assets/galaxyNote10.jpg", 37.00, 1, "description ..."), 
+(1, '2023-06-28T14:45:00', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, "/assets/iphone13.jpg", 50.00, 5, "description ...");
