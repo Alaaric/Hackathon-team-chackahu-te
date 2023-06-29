@@ -10,6 +10,7 @@ import Calculator from "./pages/calculator";
 import AdminProtectedRoutes from "./layouts/AdminProtectedRoutes";
 import ProtectedRoute from "./layouts/ProtectedRoute";
 import NavLayout from "./layouts/NavLayout";
+import Comments from "./pages/Comments";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="calculator" element={<Calculator />} />
             <Route path="faq" element={<Faq />} />
             <Route path="products" element={<AllProducts />} />
+            <Route path="comments" element={<Comments />} />
           </Route>
 
           {/* LOGGED ADMIN ROUTES */}
@@ -47,6 +49,7 @@ function App() {
             <Route path="dashboard" element={<Admin />} />
             <Route path="calculator" element={<Calculator />} />
             <Route path="products" element={<AllProducts />} />
+            <Route path="comments" element={<Comments />} />
             <Route path="faq" element={<Faq />} />
           </Route>
         </Routes>
