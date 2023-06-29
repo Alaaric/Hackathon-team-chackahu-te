@@ -1,21 +1,18 @@
-.faq_list{
-
-    
-      
+.faq_list {
 }
 details {
-    margin-top: 10px;
-    border: 1px solid;
-    border-radius: 4px;
-    padding: 10px;
-  
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-      outline: none;
-    }
-  
-    p {
-      margin-top: 10px;
-    }
+  margin-top: 10px;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 10px;
+
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
   }
+
+  p {
+    margin-top: 10px;
+  }
+}
