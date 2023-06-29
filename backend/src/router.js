@@ -13,6 +13,7 @@ const stateControllers = require("./controllers/stateControllers");
 const storageControllers = require("./controllers/storagesControllers");
 const categoriesControllers = require("./controllers/categoriesControllers");
 const locationsControllers = require("./controllers/locationsControllers");
+const commentsControllers = require("./controllers/commentsControllers");
 
 const usersControllers = require("./controllers/usersControllers");
 const {
@@ -27,6 +28,8 @@ router.put("/users/:id", verifyToken, hashPassword, usersControllers.edit);
 router.post("/login", usersControllers.getUserByEmail, verifyPassword);
 router.post("/users", hashPassword, usersControllers.add);
 router.delete("/users/:id", verifyToken, usersControllers.destroy);
+
+router.get("/comments", commentsControllers.browse);
 
 router.get("/ref_products", refProductsControllers.browse);
 router.get("/ref_products/:id", refProductsControllers.read);
@@ -52,6 +55,8 @@ router.use(verifyToken);
 router.put("/ref_products/:id", refProductsControllers.edit);
 router.post("/ref_products", refProductsControllers.add);
 router.delete("/ref_products/:id", refProductsControllers.destroy);
+
+router.post("/comments", commentsControllers.add);
 
 router.put("/stock_products/:id", stockProductsControllers.edit);
 router.post("/stock_products", stockProductsControllers.add);

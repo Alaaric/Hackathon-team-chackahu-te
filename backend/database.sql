@@ -1,4 +1,4 @@
--- Active: 1682342351805@@127.0.0.1@3306@chackahuete_db
+-- Active: 1682342265558@@127.0.0.1@3306@chacka
 -- creation of users and roles tables --
 CREATE TABLE roles (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -6,6 +6,8 @@ CREATE TABLE roles (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO roles (role) VALUES ("user"), ("admin");
+
+
 
 CREATE TABLE users (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -21,6 +23,14 @@ INSERT INTO users (firstname, lastname, email, hpassword, role_id) VALUES
 ("john", "doe", "johny@holder.com", " $argon2id$v=19$m=65536,t=5,p=1$ceq4G57NrfQHLSjpz7YBMA$T+Y3xLZ65+Oo+iHnpXhSKLKaJGMWM7Q/tK9C+J5Le4E", 1),
 ("jane", "doe", "jane@holder.com", "$argon2id$v=19$m=65536,t=5,p=1$+ZxkXZrUaXNk5yX2B+e6mg$1gnc8GAK+SN7F6ku+4UoAPHEv87NzL5SGwuF7iYUoUg", 1);
 
+CREATE TABLE comments (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    title VARCHAR(254) NOT NULL,
+    content VARCHAR(254) NOT NULL,
+    user_id INT , FOREIGN KEY (user_id) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ INSERT INTO comments (title, content, user_id) VALUES ("Livraison de produit", "Comment peut on avoir un produit qui se trouve à Toulouse ? Car j'ai un client qui souhaite un télephone. Merci", 1), ("Ajout de produits", " Va t il y avoir des ajouts de références sur le site dans les prochaines semaines?", 2);
 -- creation of ref products info tables --
 CREATE TABLE os (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -33,6 +43,7 @@ CREATE TABLE brands (
   brand VARCHAR(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 INSERT INTO brands (brand) VALUES ("Samsung"), ("Apple"), ("Xiaomi"), ("Huawei");
+
 
 CREATE TABLE models (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -59,14 +70,14 @@ CREATE TABLE RAMs (
   value INT NOT NULL,
   calculator_value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO RAMs (value, calculator_value) VALUES (1,20), (2,30), (4,40), (8,600), (12,80), (16,100);  
+INSERT INTO RAMs (value, calculator_value) VALUES (1,20), (2,30), (3,40), (4,50), (8,70), (12,90), (16,110);  
 
 CREATE TABLE storages (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   value INT NOT NULL,
   calculator_value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO storages (value, calculator_value) VALUES (16,20), (32,30), (64,40), (128,60), (256,80), (512,100), (1000, 120);  
+INSERT INTO storages (value, calculator_value) VALUES (16,20), (32,30), (64,40), (128,60), (256,80), (512,100), (1024, 120);  
 
 CREATE TABLE states (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -114,7 +125,7 @@ VALUES
 CREATE TABLE stock_products (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id int NOT NULL, FOREIGN KEY (user_id) REFERENCES users(id),
-  creation_date DATE NOT NULL,
+  creation_date DATE DEFAULT (CURRENT_DATE) NOT NULL,
   color VARCHAR(254) NOT NULL,
   brand_id int NOT NULL, FOREIGN KEY (brand_id) REFERENCES brands(id),
   model_id int NOT NULL, FOREIGN KEY (model_id) REFERENCES models(id),
@@ -133,9 +144,9 @@ CREATE TABLE stock_products (
 INSERT INTO stock_products (user_id, creation_date, color, brand_id, model_id, os_id, RAM_id, storage_id,
 state_id, category_id, accessories, photo, price, location_id, description) 
 VALUES  
-(1, '2023-06-28 13:59:00.000000', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, "/assets/galaxys9.jpg", 27.00, 1, "description ..."), 
-(1, '2023-06-28 14:09:00.000000', "rose", 1, 2, 1, 4, 5, 2, 4, 1, "/assets/galaxys20.jpg", 25.00, 2, "description ..."), 
-(1, '2023-06-28 14:14:00.000000', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, "/assets/galaxys21.jpg", 48.00, 5,"description ..."), 
-(1, '2023-06-28 14:18:00.000000', "orange", 1, 5, 1, 4, 5, 1, 4, 1, "/assets/galaxyA40.jpg", 25.00, 8, "description ..."),   
-(1, '2023-06-28 14:39:00.000000', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, "/assets/galaxyNote10.jpg", 37.00, 1, "description ..."), 
-(1, '2023-06-28 14:45:00.000000', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, "/assets/iphone13.jpg", 50.00, 5, "description ...");
+(1, '2023-06-28T13:59:00', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, "/assets/galaxys9.jpg", 33.00, 1, "description ..."), 
+(1, '2023-06-28T14:09:00', "rose", 1, 2, 1, 4, 5, 2, 4, 1, "/assets/galaxys20.jpg", 45.00, 2, "description ..."), 
+(1, '2023-06-28T14:14:00', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, "/assets/galaxys21.jpg", 59.00, 5,"description ..."), 
+(1, '2023-06-28T14:18:00', "orange", 1, 5, 1, 4, 5, 1, 4, 1, "/assets/galaxyA40.jpg", 66.00, 8, "description ..."),   
+(1, '2023-06-28T14:39:00', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, "/assets/galaxyNote10.jpg", 70.00, 1, "description ..."), 
+(1, '2023-06-28T14:45:00', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, "/assets/iphone13.jpg", 90.00, 5, "description ...");

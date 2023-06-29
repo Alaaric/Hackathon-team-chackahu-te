@@ -2,13 +2,15 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 60px;
 
   .filter-container {
     padding: 2rem;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 0;
     justify-content: flex-start;
     margin-bottom: 3rem;
     gap: 1rem;
@@ -26,7 +28,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0 2rem;
+    padding: 2rem;
   }
 }
 
@@ -52,7 +54,7 @@
         display: block;
         font-size: 1.2rem;
       }
-    }
+          }
     .allproducts-container {
       padding: 2rem;
       height: 100%;

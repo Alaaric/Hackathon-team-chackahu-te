@@ -40,9 +40,13 @@ const StateManager = require("./stateManager");
 const StorageManager = require("./storagesManager");
 const CategoriesManager = require("./categoriesManager");
 const LocationsManager = require("./locationsManager");
+const CommentsManager = require("./commentsManager");
 
 models.user = new UsersManager();
 models.user.setDatabase(pool);
+
+models.comments = new CommentsManager();
+models.comments.setDatabase(pool);
 
 models.os = new OsManager();
 models.os.setDatabase(pool);
