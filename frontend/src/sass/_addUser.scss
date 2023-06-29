@@ -1,7 +1,6 @@
 .add-user-management {
   display: flex;
   justify-content: center;
-  // align-items: center;
   flex-direction: column;
   width: 85%;
   margin: 0 auto;
@@ -36,6 +35,22 @@
     justify-content: center;
     flex-direction: column;
 
+    .reset-link-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 1rem;
+      .reset-link {
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: var(--redColor);
+        font-weight: bold;
+        font-size: 1rem;
+      }
+    }
+
     > label {
       margin-top: 0.5rem;
       font-size: 1rem;
@@ -68,7 +83,6 @@
       flex-direction: column;
       width: 95%;
       justify-content: flex-start;
-      // align-items: flex-end;
       margin-top: 0.5rem;
       font-size: 1rem;
       gap: 1rem;
@@ -163,6 +177,11 @@
         align-items: center;
         width: 95%;
         margin: 0 auto;
+
+        .reset-link-container {
+          width: 50%;
+          justify-content: center;
+        }
 
         .roles-container-1 {
           width: 95%;

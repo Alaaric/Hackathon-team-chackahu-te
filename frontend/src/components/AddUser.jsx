@@ -37,9 +37,13 @@ export default function AddUser() {
           password: targetValues.password,
           role_id: parseInt(targetValues.role, 10),
         })
-
         .then((response) => {
-          console.info(response);
+          if (response.status === 201) {
+            axios.post(`${import.meta.env.VITE_BACKEND_URL}/test`, {
+              id: response.data[0].insertId,
+              email: targetValues.email,
+            });
+          }
         })
         .catch((err) => console.error(err));
     } else {
@@ -47,7 +51,7 @@ export default function AddUser() {
     }
     event.target.reset();
   };
-  console.info(targetValues.role);
+
   return (
     <form className="add-user-management" onSubmit={submit}>
       <div className="add-user-title-container">
