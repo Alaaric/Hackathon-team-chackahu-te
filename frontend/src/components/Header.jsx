@@ -1,15 +1,20 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavModal from "./NavModal";
 import Logo from "../assets/logoEmmaus.png";
 import UserContext from "../contexts/UserContext";
 
 export default function Header() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const { users } = useContext(UserContext);
+  const { users, setUsers } = useContext(UserContext);
 
   const handleMenuClick = () => {
     setIsNavbarOpen(!isNavbarOpen);
+  };
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    setUsers();
+    navigate("/");
   };
 
   return (
@@ -42,11 +47,11 @@ export default function Header() {
           <p>FAQ</p>
         </Link>
 
-        <button className="btnDisconnect" type="button">
-          <Link to="/">
-            <p>Déconnexion</p>
-          </Link>
-        </button>
+        <Link to="/" onClick={handleLogout}>
+          <button className="btnDisconnect" type="button">
+            Déconnexion
+          </button>
+        </Link>
       </div>
 
       <button type="button" className="burgerMenu" onClick={handleMenuClick}>
