@@ -4,6 +4,8 @@ import CardProduct from "../components/CardProduct";
 
 export default function AllProducts() {
   const [allProducts, setAllProducts] = useState([]);
+  const [allBrands, setAllBrands] = useState([]);
+  const [allModels, setAllModels] = useState([]);
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
   const [modelBox, setModelBox] = useState("");
@@ -15,6 +17,21 @@ export default function AllProducts() {
       .catch((err) => console.error(err));
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/brands`)
+      .then((res) => setAllBrands(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/models`)
+      .then((res) => setAllModels(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  console.info(allBrands);
   return (
     <div className="global-container-products">
       <div className="filter-container">
@@ -26,10 +43,10 @@ export default function AllProducts() {
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
           />
-          {allProducts.map((product) => (
-            <div className="checkbox-container">
+          {allBrands.map((b) => (
+            <div className="checkbox-container" key={b.id}>
               <input type="checkbox" id="brand" name="brand" />
-              {product.brand}
+              {b.brand}
             </div>
           ))}
         </div>
@@ -41,16 +58,16 @@ export default function AllProducts() {
             value={model}
             onChange={(e) => setModel(e.target.value)}
           />
-          {allProducts.map((product) => (
-            <div className="checkbox-container">
+          {allModels.map((m) => (
+            <div className="checkbox-container" key={m.id}>
               <input
                 type="checkbox"
                 id="model"
                 name="model"
-                value={product.model}
+                value={m.namel}
                 onChange={(e) => setModelBox(e.target.value)}
               />
-              {product.model}
+              {m.name}
             </div>
           ))}
         </div>
