@@ -27,7 +27,7 @@ router.get("/users/:id", usersControllers.read);
 router.put("/users/:id", verifyToken, hashPassword, usersControllers.edit);
 router.post("/login", usersControllers.getUserByEmail, verifyPassword);
 router.post("/users", hashPassword, usersControllers.add);
-router.delete("/users/:id", verifyToken, usersControllers.destroy);
+router.delete("/users/:id", usersControllers.destroy);
 
 router.get("/comments", commentsControllers.browse);
 

@@ -51,6 +51,7 @@ export default function AddUser({ setShowAddUser }) {
       console.info("XXX Submitting form with state:", targetValues);
     }
     event.target.reset();
+    setShowAddUser(false);
   };
 
   return (
