@@ -1,97 +1,49 @@
-import React, { useState, useEffect, useRef } from "react";
-import Chevron from "../assets/Faq/chevron.svg";
+import React from "react";
+import Faq from "../assets/Faq/FAQ.svg";
 
-export default function Accordion() {
-  const [toggle, setToggle] = useState(false);
-  const [heightEl, setHeightEl] = useState();
-
-  const refHeight = useRef();
-
-  useEffect(() => {
-    console.warn(refHeight);
-    setHeightEl(`${refHeight.current.scrollHeight}px`);
-  }, []);
-
-  const toggleState = () => {
-    setToggle(!toggle);
-  };
-
-  console.warn(toggle);
+function FaqList() {
   return (
-    <div className="container">
+    <div className="faq_list">
+      <span className="faq_title">Comment pouvons-nous vous aider?</span>
+      <h1>Répondons à vos questions!</h1>
+      <img src={Faq} alt="Faq" className="Faq" />
       <div>
-        <span className="faq_title">Questions les plus fréquemment posées</span>
-        <h1>Répondons à vos questions!</h1>
-      </div>
-      <div className="accordion">
-        <button
-          onClick={toggleState}
-          className="accordion-visible"
-          type="button"
-        >
-          <span>"Pourquoi donner vos anciens smartphones ?"</span>
-          <img className={toggle && "active"} src={Chevron} alt="chevron" />
-        </button>
-
-        <div
-          className={toggle ? "accordion-toggle animated" : "accordion-toggle"}
-          style={{ height: toggle ? `${heightEl}` : "0px" }}
-          ref={refHeight}
-        >
-          <p aria-hidden={toggle ? "true" : "false"}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
-            suscipit quae maiores sunt ducimus est dolorem perspiciatis earum
-            corporis unde, dicta quibusdam aut placeat dignissimos distinctio
-            vel quo eligendi ipsam.
+        <details>
+          <summary>Pourquoi faire un don de vos smartphones?</summary>
+          <p>
+            Parce qu'ils restent dans vos tiroirs et qu'ils peuvent avoir une
+            seconde vie
           </p>
-        </div>
-      </div>
-      <div className="accordion">
-        <button
-          onClick={toggleState}
-          className="accordion-visible"
-          type="button"
-        >
-          <span>"Pourquoi donner vos anciens smartphones ?"</span>
-          <img className={toggle && "active"} src={Chevron} alt="chevron" />
-        </button>
-
-        <div
-          className={toggle ? "accordion-toggle animated" : "accordion-toggle"}
-          style={{ height: toggle ? `${heightEl}` : "0px" }}
-          ref={refHeight}
-        >
-          <p aria-hidden={toggle ? "true" : "false"}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
-            suscipit quae maiores sunt ducimus est dolorem perspiciatis earum
-            corporis unde, dicta quibusdam aut placeat dignissimos distinctio
-            vel quo eligendi ipsam.
-          </p>
-        </div>
-      </div>
-      <div className="accordion">
-        <button
-          onClick={toggleState}
-          className="accordion-visible"
-          type="button"
-        >
-          <span>"Pourquoi donner vos anciens smartphones ?"</span>
-          <img className={toggle && "active"} src={Chevron} alt="chevron" />
-        </button>
-
-        <div
-          className={toggle ? "accordion-toggle animated" : "accordion-toggle"}
-          style={{ height: toggle ? `${heightEl}` : "0px" }}
-          ref={refHeight}
-        >
-          <p aria-hidden={toggle ? "true" : "false"}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
-            suscipit quae maiores sunt ducimus est dolorem perspiciatis earum
-            corporis unde, dicta quibusdam aut placeat dignissimos distinctio
-            vel quo eligendi ipsam.
-          </p>
-        </div>
+        </details>
+        <details>
+          <summary>Pourquoi le ciel est bleu?</summary>
+          <p>Here are some additional details that you can toggle.</p>
+        </details>
+        <details>
+          <summary>Pourquoi faut-il être éco responsable?</summary>
+          <p>Here are some additional details that you can toggle.</p>
+        </details>
+        <details>
+          <summary>
+            Je n'ai pas de smarpthone mais je souhaite faire don de mon oiseau.
+          </summary>
+          <p>Here are some additional details that you can toggle.</p>
+        </details>
+        <details>
+          <summary>
+            Je n'ai pas de smarpthone mais je souhaite faire don de ma voiture.
+          </summary>
+          <p>Here are some additional details that you can toggle.</p>
+        </details>
+        <details>
+          <summary>
+            J'ai un PC à 5000€ mais puis-je avoir un smartphone gratuit?
+          </summary>
+          <p>Here are some additional details that you can toggle.</p>
+        </details>
       </div>
     </div>
   );
 }
+
+export default FaqList;

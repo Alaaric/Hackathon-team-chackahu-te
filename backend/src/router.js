@@ -5,6 +5,13 @@ const router = express.Router();
 const refProductsControllers = require("./controllers/refProductsControllers");
 const stockProductsControllers = require("./controllers/stockProductsControllers");
 const mailControllers = require("./controllers/mailControllers");
+const brandsControllers = require("./controllers/brandsControllers");
+const modelsControllers = require("./controllers/modelsControllers");
+const osControllers = require("./controllers/osControllers");
+const ramControllers = require("./controllers/ramControllers");
+const stateControllers = require("./controllers/stateControllers");
+const storageControllers = require("./controllers/storagesControllers");
+const categoriesControllers = require("./controllers/categoriesControllers");
 
 const usersControllers = require("./controllers/usersControllers");
 const {
@@ -28,6 +35,11 @@ router.get("/stock_products/:id", stockProductsControllers.read);
 
 router.post("/test", mailControllers.sendMailById);
 router.put("/resetpassword", hashPassword, usersControllers.editUserPassword);
+router.get("/os", osControllers.browse);
+router.get("/rams", ramControllers.browse);
+router.get("/storage", storageControllers.browse);
+router.get("/state", stateControllers.browse);
+router.get("/categories", categoriesControllers.browse);
 
 router.use(verifyToken);
 router.put("/ref_products/:id", refProductsControllers.edit);
@@ -37,5 +49,11 @@ router.delete("/ref_products/:id", refProductsControllers.destroy);
 router.put("/stock_products/:id", stockProductsControllers.edit);
 router.post("/stock_products", stockProductsControllers.add);
 router.delete("/stock_products/:id", stockProductsControllers.destroy);
+
+router.get("/brands", brandsControllers.browse);
+router.post("/brands", brandsControllers.add);
+
+router.get("/models", modelsControllers.browse);
+router.post("/models", modelsControllers.add);
 
 module.exports = router;

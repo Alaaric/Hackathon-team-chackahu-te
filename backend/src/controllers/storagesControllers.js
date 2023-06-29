@@ -1,8 +1,8 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.refProducts
-    .getAllRefPhones()
+  models.storages
+    .findAll()
     .then(([rows]) => {
       res.send(rows);
     })
@@ -13,7 +13,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.refProducts
+  models.storages
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -35,7 +35,7 @@ const edit = (req, res) => {
 
   product.id = parseInt(req.params.id, 10);
 
-  models.refProducts
+  models.storages
     .update(product)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -55,7 +55,7 @@ const add = (req, res) => {
 
   // TODO validations (length, format...)
 
-  models.refProducts
+  models.storages
     .insert(product)
     .then(([result]) => {
       res.location(`/ref_products/${result.insertId}`).sendStatus(201);
@@ -67,7 +67,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.refProducts
+  models.storages
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
