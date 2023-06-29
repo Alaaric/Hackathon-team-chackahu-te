@@ -78,8 +78,8 @@ export default function AddUser({ setShowAddUser }) {
                   required
                 >
                   <option value="">-- Select --</option>
-                  <option value="1">Admin</option>
-                  <option value="2">Bénevole</option>
+                  <option value="2">Admin</option>
+                  <option value="1">Bénevole</option>
                 </select>
               </label>
             </div>
