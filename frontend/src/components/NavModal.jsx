@@ -34,7 +34,9 @@ export default function NavModal() {
         </Link>
 
         <button className="btnDisconnect" type="button">
-          Déconnexion
+          <Link to="/">
+            <p>Déconnexion</p>
+          </Link>
         </button>
       </div>
     </nav>

@@ -58,9 +58,6 @@ function RefProductsList({ tab }) {
                 </td>
                 <td>{product.RAM}G</td>
                 <td>{product.storage}G</td>
-                <td className="view">
-                  <img src="../src/assets/view.png" alt="view" />
-                </td>
               </tr>
             ))}
         </tbody>
