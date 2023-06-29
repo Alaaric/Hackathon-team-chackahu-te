@@ -41,6 +41,11 @@ export default function Header() {
         <Link to={users.role_id === 2 ? "/admin/faq" : "/connected/faq"}>
           <p>FAQ</p>
         </Link>
+        <Link
+          to={users.role_id === 2 ? "/admin/comments" : "/connected/comments"}
+        >
+          <p>Commentaires</p>
+        </Link>
 
         <button className="btnDisconnect" type="button">
           <Link to="/">

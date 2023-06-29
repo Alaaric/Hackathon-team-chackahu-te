@@ -5,7 +5,7 @@ const secret = process.env.SECRET_MAIL;
 
 const browse = (req, res) => {
   models.user
-    .findAll()
+    .selectAll()
     .then(([rows]) => {
       res.send(rows);
     })
