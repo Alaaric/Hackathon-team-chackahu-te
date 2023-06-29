@@ -285,7 +285,7 @@ export default function Calculator() {
           </label>
         )}
         {users.role_id === 2 && (
-         <label htmlFor="file" className="label-file">
+          <label htmlFor="file" className="label-file">
             Choisir une photo
             <input type="file" className="input-file" id="file" />
           </label>
