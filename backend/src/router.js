@@ -5,6 +5,8 @@ const router = express.Router();
 const refProductsControllers = require("./controllers/refProductsControllers");
 const stockProductsControllers = require("./controllers/stockProductsControllers");
 const mailControllers = require("./controllers/mailControllers");
+const brandsControllers = require("./controllers/brandsControllers");
+const modelsControllers = require("./controllers/modelsControllers");
 
 const usersControllers = require("./controllers/usersControllers");
 const {
@@ -37,5 +39,11 @@ router.delete("/ref_products/:id", refProductsControllers.destroy);
 router.put("/stock_products/:id", stockProductsControllers.edit);
 router.post("/stock_products", stockProductsControllers.add);
 router.delete("/stock_products/:id", stockProductsControllers.destroy);
+
+router.get("/brands", brandsControllers.browse);
+router.post("/brands", brandsControllers.add);
+
+router.get("/models", modelsControllers.browse);
+router.post("/models", modelsControllers.add);
 
 module.exports = router;

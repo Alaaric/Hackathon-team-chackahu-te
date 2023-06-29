@@ -32,6 +32,8 @@ const models = {};
 const UsersManager = require("./UsersManager");
 const RefProductsManager = require("./refProductsManager");
 const StockProductsManager = require("./stockProductsManager");
+const BrandsManager = require("./brandsManager");
+const ModelsManager = require("./modelsManager");
 
 models.user = new UsersManager();
 models.user.setDatabase(pool);
@@ -41,6 +43,12 @@ models.refProducts.setDatabase(pool);
 
 models.stockProducts = new StockProductsManager();
 models.stockProducts.setDatabase(pool);
+
+models.brands = new BrandsManager();
+models.brands.setDatabase(pool);
+
+models.models = new ModelsManager();
+models.models.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
