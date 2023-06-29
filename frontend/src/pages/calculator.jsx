@@ -285,26 +285,27 @@ export default function Calculator() {
           </label>
         )}
         {users.role_id === 2 && (
-          <label htmlFor="color">
-            Photo:
-            <br />
-            <input type="file" className="btnGrading" />
+         <label htmlFor="file" className="label-file">
+            Choisir une photo
+            <input type="file" className="input-file" id="file" />
           </label>
         )}
-        <button className="btnGrading" type="submit">
-          {" "}
-          évaluer
-        </button>
-        {users.role_id === 2 && (
-          <button
-            className="btnGrading"
-            type="button"
-            onClick={HandlePostProduct}
-          >
+        <div className="btnGradingAndStockContainer">
+          <button className="btnGrading" type="submit">
             {" "}
-            Ajouter au stock
+            évaluer
           </button>
-        )}
+          {users.role_id === 2 && (
+            <button
+              className="btnAddStock"
+              type="button"
+              onClick={HandlePostProduct}
+            >
+              {" "}
+              Ajouter au stock
+            </button>
+          )}
+        </div>
       </form>
       {result && (
         <div className="priceCategoryContainer">

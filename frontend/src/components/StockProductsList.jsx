@@ -1,23 +1,25 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import AddProduct from "./AddProduct";
 
 function StockProductsList({ tab }) {
   const [stockProducts, setStockProducts] = useState([]);
-  const [modal, setModal] = useState(false);
   const [row, setRow] = useState(0);
   const [toggle, setToggle] = useState(false);
+  const [showAddProduct, setShowAddProduct] = useState(false);
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/stock_products/`)
       .then((res) => setStockProducts(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [showAddProduct]);
 
   return (
     <div className={tab === 3 ? "display" : "hide"}>
-      <button type="button" onClick={() => setModal(!modal)}>
+      {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} />}
+      <button type="button" onClick={() => setShowAddProduct(true)}>
         Ajouter un produit
       </button>
       <table>
