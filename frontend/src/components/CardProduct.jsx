@@ -1,9 +1,16 @@
 import { PropTypes } from "prop-types";
 import image from "../../../backend/public/assets/images/galaxyNote10.jpg";
 
-export default function CardProduct({ product }) {
+export default function CardProduct({ setValueModal, openModal, product }) {
   return (
-    <div className="card-product-container">
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <div
+      className="card-product-container"
+      onClick={() => {
+        openModal(true);
+        setValueModal(product);
+      }}
+    >
       <div className="image-container">
         <img src={image} alt="pic tel" />
       </div>
@@ -21,4 +28,6 @@ export default function CardProduct({ product }) {
 }
 CardProduct.propTypes = {
   product: PropTypes.shape().isRequired,
+  setValueModal: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired,
 };
