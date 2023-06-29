@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <header>
       <div className="logoContainer">
-        <Link to="/">
+        <Link to="/calculator">
           <img src={Logo} className="logo" alt="logo" />
         </Link>
       </div>
@@ -43,7 +43,9 @@ export default function Header() {
         </Link>
 
         <button className="btnDisconnect" type="button">
-          Déconnexion
+          <Link to="/">
+            <p>Déconnexion</p>
+          </Link>
         </button>
       </div>
 

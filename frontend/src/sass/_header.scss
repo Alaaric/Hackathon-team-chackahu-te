@@ -73,7 +73,11 @@ header {
         border: none;
         background: var(--lightBleuColor);
         font-weight: 600;
-        color: white;
+
+        p{
+          color: white;
+          margin: 0 15px;
+        }
 
         &:hover {
           cursor: pointer;

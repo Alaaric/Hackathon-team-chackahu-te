@@ -105,6 +105,7 @@ export default function Calculator() {
       >
         <label htmlFor="brand">
           Marque:
+          <br />
           <select
             name="brand"
             id="brand"
@@ -120,6 +121,7 @@ export default function Calculator() {
         </label>
         <label htmlFor="model">
           Modèle:
+          <br />
           <select
             name="model"
             id="model"
@@ -135,6 +137,7 @@ export default function Calculator() {
         </label>
         <label htmlFor="os">
           OS:
+          <br />
           <select name="os" id="os" onChange={(e) => setOs(e.target.value)}>
             {osList &&
               osList.map((oss) => (
@@ -146,6 +149,7 @@ export default function Calculator() {
         </label>
         <label htmlFor="ram">
           RAM:
+          <br />
           <select name="ram" id="ram" onChange={(e) => setRams(e.target.value)}>
             {ramList &&
               ramList.map((ram) => (
@@ -157,6 +161,7 @@ export default function Calculator() {
         </label>
         <label htmlFor="storage">
           Stockage:
+          <br />
           <select
             name="storage"
             id="storage"
@@ -172,6 +177,7 @@ export default function Calculator() {
         </label>
         <label htmlFor="state">
           État:
+          <br />
           <select
             name="state"
             id="state"
@@ -185,13 +191,36 @@ export default function Calculator() {
               ))}
           </select>
         </label>
-        <button type="submit"> évaluer</button>
+        <button
+          className="btnGrading"
+          type="submit"
+          style={{
+            backgroundColor: "#00acb0",
+            border: "none",
+            borderRadius: "15px",
+            width: "200px",
+            height: "50px",
+            fontSize: "1.1rem",
+            fontWeight: "600",
+            color: "white",
+            padding: "0 20px",
+          }}
+        >
+          {" "}
+          évaluer
+        </button>
       </form>
       {result && (
-        <div>
+        <div className="priceCategoryContainer">
           {" "}
-          <p>Prix conseillé: {result[1]}</p>
-          <p>Catégorie: {result[0]}</p>{" "}
+          <div className="priceBox">
+            <p className="price">Prix conseillé:</p>
+            <div className="priceResult">{result[1]}</div>
+          </div>
+          <div className="categoryBox">
+            <p className="category">Catégorie:</p>
+            <div className="categoryResult">{result[0]}</div>
+          </div>
         </div>
       )}
     </div>
