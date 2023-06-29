@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import NavModal from "./NavModal";
 
 import Logo from "../assets/logoEmmaus.png";
+import UserContext from "../contexts/UserContext";
 
 export default function Header() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { users } = useContext(UserContext);
 
   const handleMenuClick = () => {
     setIsNavbarOpen(!isNavbarOpen);
@@ -23,16 +25,19 @@ export default function Header() {
         <Link to="/">
           <p>Accueil</p>
         </Link>
-        <Link to="/">
+        <Link
+          to={
+            users.role_id === 2 ? "/admin/calculator" : "/connected/calculator"
+          }
+        >
           <p>Estimation</p>
         </Link>
-        <Link to="/admin">
-          <p>Admin</p>
-        </Link>
-        <Link to="*">
-          <p>Test 404</p>
-        </Link>
-        <Link to="/Faq">
+        {users.role_id === 2 && (
+          <Link to="/admin/dashboard">
+            <p>Admin</p>
+          </Link>
+        )}
+        <Link to={users.role_id === 2 ? "/admin/faq" : "/connected/faq"}>
           <p>FAQ</p>
         </Link>
 

@@ -7,7 +7,7 @@ class usersManager extends AbstractManager {
 
   selectByEmail(email) {
     return this.database.query(
-      "select id, firstname, lastname, hpassword from users where email = ?",
+      "select id, firstname, lastname, hpassword, role_id from users where email = ?",
       [email]
     );
   }
