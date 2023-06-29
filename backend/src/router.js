@@ -50,6 +50,7 @@ router.get("/models", modelsControllers.browse);
 router.get("/brands", brandsControllers.browse);
 router.get("/models", modelsControllers.browse);
 router.get("/locations", locationsControllers.browse);
+router.post("/stock_products", stockProductsControllers.add);
 
 router.use(verifyToken);
 router.put("/ref_products/:id", refProductsControllers.edit);
@@ -59,7 +60,6 @@ router.delete("/ref_products/:id", refProductsControllers.destroy);
 router.post("/comments", commentsControllers.add);
 
 router.put("/stock_products/:id", stockProductsControllers.edit);
-router.post("/stock_products", stockProductsControllers.add);
 router.delete("/stock_products/:id", stockProductsControllers.destroy);
 router.post("/brands", brandsControllers.add);
 

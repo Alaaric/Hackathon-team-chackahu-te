@@ -51,12 +51,38 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const product = req.body;
+  const {
+    userId,
+    rams,
+    storages,
+    states,
+    os,
+    brands,
+    model,
+    color,
+    location,
+    price,
+    category,
+    descrition,
+  } = req.body;
 
   // TODO validations (length, format...)
 
   models.stockProducts
-    .insert(product)
+    .insert(
+      userId,
+      color,
+      brands,
+      model,
+      os,
+      rams,
+      storages,
+      states,
+      category,
+      price,
+      location,
+      descrition
+    )
     .then(([result]) => {
       res.location(`/stock_products/${result.insertId}`).sendStatus(201);
     })

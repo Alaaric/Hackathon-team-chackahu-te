@@ -134,7 +134,7 @@ CREATE TABLE stock_products (
   storage_id int NOT NULL, FOREIGN KEY (storage_id) REFERENCES storages(id),
   state_id int NOT NULL, FOREIGN KEY (state_id) REFERENCES states(id),
   category_id int NOT NULL, FOREIGN KEY (category_id) REFERENCES categories(id),
-  accessories TINYINT(1) NOT NULL,
+  accessories TINYINT(1) DEFAULT 1,
   photo VARCHAR(254) DEFAULT NULL,
   price FLOAT NOT NULL,
   location_id int NOT NULL, FOREIGN KEY (location_id) REFERENCES locations(id),
