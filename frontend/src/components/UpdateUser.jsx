@@ -55,6 +55,14 @@ export default function UpdateUser() {
       console.info("XXX Submitting form with state:", targetValues);
     }
   };
+
+  const sendLink = (e) => {
+    e.preventDefault();
+    axios.post(`${import.meta.env.VITE_BACKEND_URL}/test`, {
+      id: user.id,
+      email: targetValues.email,
+    });
+  };
   console.info(user);
   return (
     <form className="add-user-management">
@@ -109,8 +117,11 @@ export default function UpdateUser() {
                 required
               />
             </label>
-
-            <p>Reinitialiser le mot de passe</p>
+            <div className="reset-link-container">
+              <button className="reset-link" type="button" onClick={sendLink}>
+                Réinitialiser le mot de passe
+              </button>
+            </div>
           </div>
         </div>
         <div className="add-button-container">
