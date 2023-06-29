@@ -5,6 +5,13 @@ class usersManager extends AbstractManager {
     super({ table: "users" });
   }
 
+  selectAll() {
+    return this.database.query(
+      `select ${this.table}.id, firstname, lastname, role, email from ${this.table}
+      inner join roles on role_id = roles.id`
+    );
+  }
+
   selectByEmail(email) {
     return this.database.query(
       "select id, firstname, lastname, hpassword, role_id from users where email = ?",
