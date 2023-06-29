@@ -11,7 +11,6 @@ export default function determineCategory(
   const RAMvalue = ramList[RAMid - 1]["calculator_value"];
   const storagevalue = storageList[storageId - 1]["calculator_value"];
   const modelvalue = modelList[modelsId - 1]["calculator_value"];
-  console.log(stateList[stateId - 1]);
   const statevalue = stateList[stateId - 1]["ponderation"];
 
   const totalPoints = (RAMvalue + storagevalue + modelvalue) * statevalue;

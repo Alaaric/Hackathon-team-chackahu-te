@@ -96,13 +96,15 @@ export default function Calculator() {
               ramList,
               storageList,
               stateList,
-              categoryList
+              categoryList,
+              os,
+              brands
             )
           );
         }}
       >
         <label htmlFor="brand">
-          Marque
+          Marque:
           <select
             name="brand"
             id="brand"
@@ -116,9 +118,8 @@ export default function Calculator() {
               ))}
           </select>
         </label>
-        <div>{brands}</div>
         <label htmlFor="model">
-          Modèle
+          Modèle:
           <select
             name="model"
             id="model"
@@ -132,9 +133,8 @@ export default function Calculator() {
               ))}
           </select>
         </label>
-        <div> {models} </div>
         <label htmlFor="os">
-          OS
+          OS:
           <select name="os" id="os" onChange={(e) => setOs(e.target.value)}>
             {osList &&
               osList.map((oss) => (
@@ -144,9 +144,8 @@ export default function Calculator() {
               ))}
           </select>
         </label>
-        <div> {os} </div>
         <label htmlFor="ram">
-          RAM
+          RAM:
           <select name="ram" id="ram" onChange={(e) => setRams(e.target.value)}>
             {ramList &&
               ramList.map((ram) => (
@@ -156,9 +155,8 @@ export default function Calculator() {
               ))}
           </select>
         </label>
-        <div> {rams} </div>
         <label htmlFor="storage">
-          Stockage
+          Stockage:
           <select
             name="storage"
             id="storage"
@@ -172,9 +170,8 @@ export default function Calculator() {
               ))}
           </select>
         </label>
-        <div> {storages} </div>
         <label htmlFor="state">
-          État
+          État:
           <select
             name="state"
             id="state"
@@ -188,7 +185,6 @@ export default function Calculator() {
               ))}
           </select>
         </label>
-        <div>{states}</div>
         <button type="submit"> évaluer</button>
       </form>
       {result && (
