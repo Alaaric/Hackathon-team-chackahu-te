@@ -12,6 +12,7 @@
     justify-content: flex-start;
     margin-bottom: 3rem;
     gap: 1rem;
+    background-color:var(--grayColor);
 
     h2 {
       margin: 0;
@@ -38,6 +39,7 @@
       justify-content: flex-start;
       height: 100%;
       width: 25%;
+      margin: 0;
 
       h2 {
         font-size: 1.5rem;

@@ -1,3 +1,15 @@
+.modalBackground-user {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color:rgba(0, 0, 0, 0.267);
+ backdrop-filter: blur(2px);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
 .add-user-management {
   display: flex;
   justify-content: center;
@@ -13,6 +25,7 @@
   background-color: #f2f2f2;
   border-radius: 5px;
   box-shadow: 5px 9px 19px 8px rgba(0, 0, 0, 0.25);
+  z-index: 1;
 
   .add-user-title-container {
     display: flex;
@@ -120,21 +133,6 @@
     width: 100%;
     gap: 1rem;
 
-    button {
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.5rem;
-      background-color: #00acb0;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: transform 350ms ease-out;
-
-      &:active {
-        border: none;
-        transform: scale(1.01);
-      }
-    }
-
     .remove-button-container {
       font-weight: 500;
       font-size: 1rem;
@@ -151,7 +149,7 @@
     }
   }
 }
-
+}
 @media screen and (min-width: 768px) {
   .add-user-management {
     display: flex;
@@ -162,6 +160,12 @@
     margin: 0 auto;
     padding: 0 0.5rem 0.5rem 0.5rem;
     max-width: 60rem;
+
+    .close-btn{
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
 
     .add-user-title-container {
       justify-content: flex-start;

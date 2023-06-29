@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import AddUser from "./AddUser";
 
 function UsersList({ tab }) {
+  const [showAddUser, setShowAddUser] = useState(false);
   const [users, setUsers] = useState([]);
   useEffect(() => {
     axios
@@ -15,7 +17,10 @@ function UsersList({ tab }) {
 
   return (
     <div className={tab === 1 ? "display" : "hide"}>
-      <button type="button">Ajouter un utilisateur</button>
+      {showAddUser && <AddUser setShowAddUser={setShowAddUser} />}
+      <button type="button" onClick={() => setShowAddUser(true)}>
+        Ajouter un utilisateur
+      </button>
       <table>
         <thead>
           <tr>
