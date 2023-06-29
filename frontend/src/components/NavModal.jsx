@@ -13,11 +13,11 @@ export default function NavModal() {
         <Link to="/">
           <p>Test2</p>
         </Link>
-        <Link to="/">
-          <p>et la le 3</p>
+        <Link to="*">
+          <p>test de la 404</p>
         </Link>
-        <Link to="/">
-          <p>ici c'est 4</p>
+        <Link to="/Faq">
+          <p>FAQ</p>
         </Link>
 
         <button className="btnDisconnect" type="button">
