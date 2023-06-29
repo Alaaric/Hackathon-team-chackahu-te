@@ -133,10 +133,10 @@ CREATE TABLE stock_products (
 INSERT INTO stock_products (user_id, creation_date, color, brand_id, model_id, os_id, RAM_id, storage_id,
 state_id, category_id, accessories, price, location_id, description) 
 VALUES  
-(1, '2023-06-28 13:59:00.000000', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, 27.00, 1, "description ..."), 
-(1, '2023-06-28 14:09:00.000000', "rose", 1, 2, 1, 4, 5, 2, 4, 1, 25.00, 2, "description ..."), 
-(1, '2023-06-28 14:14:00.000000', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, 48.00, 5,"description ..."), 
-(1, '2023-06-28 14:18:00.000000', "orange", 1, 5, 1, 4, 5, 1, 4, 1, 25.00, 8, "description ..."),   
+(1, '2023-06-28 13:59:00.000000', "bleu", 1, 1, 1, 4, 5, 1, 1, 0, 27.00, 1, "description ..."), 
+(1, '2023-06-28 14:09:00.000000', "rose", 1, 2, 1, 4, 5, 2, 3, 1, 25.00, 2, "description ..."), 
+(1, '2023-06-28 14:14:00.000000', "Violet fantôme", 1, 4, 1, 2, 5, 3, 4, 1, 48.00, 5,"description ..."), 
+(1, '2023-06-28 14:18:00.000000', "orange", 1, 5, 1, 4, 5, 1, 5, 1, 25.00, 8, "description ..."),   
 (1, '2023-06-28 14:39:00.000000', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, 37.00, 1, "description ..."), 
 (1, '2023-06-28 14:45:00.000000', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, 50.00, 5, "description ...");
 

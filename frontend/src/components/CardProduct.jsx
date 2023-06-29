@@ -17,7 +17,7 @@ export default function CardProduct({ setValueModal, openModal, product }) {
       <div className="informations-container">
         <div className="description-container">
           <h1>{product.model}</h1>
-          <p>{product.description}</p>
+          {/* <p>{product.description}</p> */}
         </div>
         <div className="price-container">
           <p>{product.price} €</p>
