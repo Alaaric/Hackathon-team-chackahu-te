@@ -26,6 +26,9 @@ router.get("/ref_products/:id", refProductsControllers.read);
 router.get("/stock_products", stockProductsControllers.browse);
 router.get("/stock_products/:id", stockProductsControllers.read);
 
+router.post("/test", mailControllers.sendMailById);
+router.put("/resetpassword", hashPassword, usersControllers.editUserPassword);
+
 router.use(verifyToken);
 router.put("/ref_products/:id", refProductsControllers.edit);
 router.post("/ref_products", refProductsControllers.add);
@@ -34,8 +37,5 @@ router.delete("/ref_products/:id", refProductsControllers.destroy);
 router.put("/stock_products/:id", stockProductsControllers.edit);
 router.post("/stock_products", stockProductsControllers.add);
 router.delete("/stock_products/:id", stockProductsControllers.destroy);
-
-router.get("/test", mailControllers.sendMail);
-router.put("/resetpassword", usersControllers.editUserPassword);
 
 module.exports = router;

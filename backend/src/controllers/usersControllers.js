@@ -73,13 +73,14 @@ const edit = (req, res) => {
 };
 
 const editUserPassword = (req, res) => {
-  const { user } = req.body;
+  const user = req.body;
+
   // TODO validations (length, format...)
   jwt.verify(user.tok, secret, { expiresIn: "1h" }, (err) => {
     if (err) {
-      console.info(err.message);
+      console.info("proble");
     } else
-      models.users
+      models.user
         .updateUserPassword(user)
         .then(([result]) => {
           if (result.affectedRows === 0) {
@@ -103,7 +104,8 @@ const add = (req, res) => {
   models.user
     .insert(user)
     .then(([result]) => {
-      res.location(`/users/${result.insertId}`).sendStatus(201);
+      // res.location(`/users/${result.insertId}`).sendStatus(201);
+      res.status(201).json([result]);
     })
     .catch((err) => {
       console.error(err);

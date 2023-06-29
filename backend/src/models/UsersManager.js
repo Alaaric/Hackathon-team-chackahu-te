@@ -25,8 +25,8 @@ class usersManager extends AbstractManager {
 
   updateUserPassword(user) {
     return this.database.query(
-      `update ${this.table} set password = ? where id = ?`,
-      [user.password, user.id]
+      `update ${this.table} set hpassword = ? where id = ?`,
+      [user.hpassword, user.id]
     );
   }
 }
