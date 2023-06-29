@@ -54,13 +54,13 @@ INSERT INTO models (name, screen_size, network) VALUES
 
 CREATE TABLE RAMs (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  value VARCHAR(254) NOT NULL
+  value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 INSERT INTO RAMs (value) VALUES (1), (2), (4), (8), (12), (16);  
 
 CREATE TABLE storages (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  value VARCHAR(254) NOT NULL
+  value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 INSERT INTO storages (value) VALUES (16), (32), (64), (128), (256), (512);  
 
