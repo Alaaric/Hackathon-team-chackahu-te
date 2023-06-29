@@ -1,4 +1,4 @@
--- Active: 1682342351805@@127.0.0.1@3306@chackahuete_db
+-- Active: 1682342265558@@127.0.0.1@3306@chacka
 -- creation of users and roles tables --
 CREATE TABLE roles (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -7,19 +7,29 @@ CREATE TABLE roles (
 
 INSERT INTO roles (role) VALUES ("user"), ("admin");
 
+CREATE TABLE comments (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    title VARCHAR(254) NOT NULL,
+    content VARCHAR(254) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ INSERT INTO comments (title, content) VALUES ("Livraison de produit", "Comment peut on avoir un produit qui se trouve à Toulouse ? Car j'ai un client qui souhaite un télephone. Merci"), ("Ajout de produits", " Va t il y avoir des ajouts de références sur le site dans les prochaines semaines?");
+
+
 CREATE TABLE users (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   firstname VARCHAR(254) NOT NULL,
   lastname VARCHAR(254) NOT NULL,
   email VARCHAR(254) NOT NULL UNIQUE,
   hpassword VARCHAR(254) NOT NULL,
-  role_id int NOT NULL, FOREIGN KEY (role_id) REFERENCES roles(id)
+  role_id int NOT NULL, FOREIGN KEY (role_id) REFERENCES roles(id),
+  comment_id INT , FOREIGN KEY (comment_id) REFERENCES comments(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO users (firstname, lastname, email, hpassword, role_id) VALUES
-("place", "holder", "place@holder.com", "$argon2id$v=19$m=65536,t=5,p=1$a+1yTad7yZYtGj8EB8GnjA$IoAbgHvfYqs8gwRj1lsK1x+usSvLfISlbDyiujt5gBA", 2),
-("john", "doe", "johny@holder.com", " $argon2id$v=19$m=65536,t=5,p=1$ceq4G57NrfQHLSjpz7YBMA$T+Y3xLZ65+Oo+iHnpXhSKLKaJGMWM7Q/tK9C+J5Le4E", 1),
-("jane", "doe", "jane@holder.com", "$argon2id$v=19$m=65536,t=5,p=1$+ZxkXZrUaXNk5yX2B+e6mg$1gnc8GAK+SN7F6ku+4UoAPHEv87NzL5SGwuF7iYUoUg", 1);
+INSERT INTO users (firstname, lastname, email, hpassword, role_id, comment_id) VALUES
+("place", "holder", "place@holder.com", "$argon2id$v=19$m=65536,t=5,p=1$a+1yTad7yZYtGj8EB8GnjA$IoAbgHvfYqs8gwRj1lsK1x+usSvLfISlbDyiujt5gBA", 2, 1),
+("john", "doe", "johny@holder.com", " $argon2id$v=19$m=65536,t=5,p=1$ceq4G57NrfQHLSjpz7YBMA$T+Y3xLZ65+Oo+iHnpXhSKLKaJGMWM7Q/tK9C+J5Le4E", 1, 2),
+("jane", "doe", "jane@holder.com", "$argon2id$v=19$m=65536,t=5,p=1$+ZxkXZrUaXNk5yX2B+e6mg$1gnc8GAK+SN7F6ku+4UoAPHEv87NzL5SGwuF7iYUoUg", 1, NULL);
 
 -- creation of ref products info tables --
 CREATE TABLE os (
@@ -33,6 +43,7 @@ CREATE TABLE brands (
   brand VARCHAR(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 INSERT INTO brands (brand) VALUES ("Samsung"), ("Apple"), ("Xiaomi"), ("Huawei");
+
 
 CREATE TABLE models (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
