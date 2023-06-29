@@ -1,4 +1,4 @@
-.faqContainer{
+.faqContainer {
   position: relative;
   width: 100vw;
   top: 60px;
@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   .faqImg {
     width: clamp(320px, 40%, 800px);
     height: auto;
@@ -15,66 +15,66 @@
     backdrop-filter: blur(2px);
   }
 
-  >h1 {
+  > h1 {
     width: clamp(280px, 80%, 800px);
     color: var(--blackColor);
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(2px);
   }
-  
+
   .detailsContainer {
     width: clamp(280px, 80%, 800px);
   }
 
   details {
-      margin: 10px 10px;
-      border-radius: 15px;
+    margin: 10px 10px;
+    border-radius: 15px;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 10px 5px -10px rgba(0, 0, 0, 0.3);
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+    }
+
+    p {
+      margin: 10px 0 0 0;
       padding: 10px;
-      transition: 0.3s ease-in-out;
-      box-shadow: 0px 10px 5px -10px rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.3);
+    }
+  }
 
-      summary {
-        font-weight: bold;
-        cursor: pointer;
-        outline: none;
-      }
-      
-      p {
-        margin: 10px 0 0 0;
-        padding: 10px;
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.8);
-        box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.3);
-      }
-    }
+  .details1 {
+    background: rgba(255, 205, 56, 0.35);
+    backdrop-filter: blur(2px);
+  }
 
-    .details1 {
-      background: rgba(255, 205, 56, 0.35);
-      backdrop-filter: blur(2px);
-    }
-    
-    .details2 {
-      background:rgba(57, 188, 208, 0.35);
-      backdrop-filter: blur(2px);
-    }
+  .details2 {
+    background: rgba(57, 188, 208, 0.35);
+    backdrop-filter: blur(2px);
+  }
 
-    .details3 {
-      background: rgba(230, 36, 98, 0.35);
-      backdrop-filter: blur(2px);
-    }
+  .details3 {
+    background: rgba(230, 36, 98, 0.35);
+    backdrop-filter: blur(2px);
+  }
 
-    .details4 {
-      background: rgba(0, 39, 67, 0.35);
-      backdrop-filter: blur(2px);
-    }
+  .details4 {
+    background: rgba(0, 39, 67, 0.35);
+    backdrop-filter: blur(2px);
+  }
 
-    .details5 {
-      background: rgba(255, 205, 56, 0.35);
-      backdrop-filter: blur(2px);
-    }
+  .details5 {
+    background: rgba(255, 205, 56, 0.35);
+    backdrop-filter: blur(2px);
+  }
 
-    .details6 {
-      background:rgba(57, 188, 208, 0.35);
-      backdrop-filter: blur(2px);
-    }
+  .details6 {
+    background: rgba(57, 188, 208, 0.35);
+    backdrop-filter: blur(2px);
+  }
 }

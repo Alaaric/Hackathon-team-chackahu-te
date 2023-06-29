@@ -7,6 +7,8 @@ import ResetPassword from "./components/ResetPassword";
 import Faq from "./pages/Faq";
 import "./styles.scss";
 
+import ProtectedRoute from "./layouts/ProtectedRoute";
+
 function App() {
   return (
     <div className="App">
@@ -14,8 +16,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="*" element={<WrongPage />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/users/:id" element={<Admin />} />
+          <Route path="/admin" element={<ProtectedRoute />}>
+            <Route path="a" element={<Admin />} />
+          </Route>
           <Route path="/contact" element={<Contact />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/faq" element={<Faq />} />
