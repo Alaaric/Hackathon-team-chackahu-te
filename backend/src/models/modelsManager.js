@@ -6,9 +6,7 @@ class modelsManager extends AbstractManager {
   }
 
   getAllmodels() {
-    return this.database.query(
-      `select name, screen_size, network from ${this.table} `
-    );
+    return this.database.query(`select * from ${this.table} `);
   }
 
   insert(model) {
