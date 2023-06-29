@@ -8,6 +8,7 @@ function UsersList({ tab }) {
   const [showAddUser, setShowAddUser] = useState(false);
   const [showUpdateUser, setShowUpdateUser] = useState(false);
   const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState([]);
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/users`)
@@ -17,10 +18,16 @@ function UsersList({ tab }) {
       .catch((err) => console.error(err));
   }, [showAddUser, showUpdateUser]);
 
+  console.info(currentUser);
   return (
     <div className={tab === 1 ? "display" : "hide"}>
       {showAddUser && <AddUser setShowAddUser={setShowAddUser} />}
-      {showUpdateUser && <UpdateUser setShowUpdateUser={setShowUpdateUser} />}
+      {showUpdateUser && (
+        <UpdateUser
+          setShowUpdateUser={setShowUpdateUser}
+          currentUser={currentUser}
+        />
+      )}
       <button type="button" onClick={() => setShowAddUser(true)}>
         Ajouter un utilisateur
       </button>
@@ -42,7 +49,13 @@ function UsersList({ tab }) {
                 <td>{user.email}</td>
                 <td>{user.role_id}</td>
                 <td>
-                  <button type="button" onClick={() => setShowUpdateUser(true)}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      // eslint-disable-next-line no-sequences
+                      return setShowUpdateUser(true), setCurrentUser(user);
+                    }}
+                  >
                     <img src="../src/assets/view.png" alt="" />
                   </button>
                 </td>

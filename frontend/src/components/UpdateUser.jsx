@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import inputValidationUpdateUser from "../services/inputValidationUpdateUser";
 
-export default function UpdateUser({ setShowUpdateUser }) {
-  const { id } = useParams();
+export default function UpdateUser({ setShowUpdateUser, currentUser }) {
   const [user, setUser] = useState([]);
   const [targetValues, setTargetValues] = useState({
     firstName: user.firstname,
@@ -17,10 +15,10 @@ export default function UpdateUser({ setShowUpdateUser }) {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/users/${currentUser.id}`)
       .then((res) => setUser(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [currentUser]);
 
   const update = (event) => {
     const target = event.currentTarget;
@@ -40,7 +38,7 @@ export default function UpdateUser({ setShowUpdateUser }) {
 
     if (isValidForm) {
       axios
-        .put(`${import.meta.env.VITE_BACKEND_URL}/users/${id}`, {
+        .put(`${import.meta.env.VITE_BACKEND_URL}/users/${currentUser.id}`, {
           firstname: targetValues.firstName,
           lastname: targetValues.lastName,
           email: targetValues.email,
@@ -57,14 +55,23 @@ export default function UpdateUser({ setShowUpdateUser }) {
     }
   };
 
+  const handleDelete = () => {
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/users/${currentUser.id}`)
+      .then((res) => console.info(res.data))
+      .catch((err) => console.error(err));
+    setShowUpdateUser(false);
+  };
+
   const sendLink = (e) => {
     e.preventDefault();
     axios.post(`${import.meta.env.VITE_BACKEND_URL}/test`, {
       id: user.id,
       email: targetValues.email,
     });
+    setShowUpdateUser(false);
   };
-  console.info(user);
+  console.info(currentUser);
   return (
     <div className="modalBackground-user">
       <form className="add-user-management">
@@ -136,7 +143,11 @@ export default function UpdateUser({ setShowUpdateUser }) {
             <button type="button" onClick={submit}>
               Modifier l'utilisateur
             </button>
-            <button className="remove-button-container" type="submit">
+            <button
+              className="remove-button-container"
+              type="button"
+              onClick={() => handleDelete()}
+            >
               Supprimer l'utilisateur
             </button>
           </div>
@@ -147,4 +158,5 @@ export default function UpdateUser({ setShowUpdateUser }) {
 }
 UpdateUser.propTypes = {
   setShowUpdateUser: PropTypes.func.isRequired,
+  currentUser: PropTypes.shape().isRequired,
 };
