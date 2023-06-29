@@ -40,7 +40,6 @@ function StockProductsList({ tab }) {
               <td>{product.category}</td>
               <td>{product.state}</td>
               <td>{product.price}</td>
-              <td />
               <td>
                 <img src="../src/assets/view.png" alt="view" />
               </td>
