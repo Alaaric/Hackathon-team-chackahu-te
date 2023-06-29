@@ -41,6 +41,8 @@ router.get("/rams", ramControllers.browse);
 router.get("/storage", storageControllers.browse);
 router.get("/state", stateControllers.browse);
 router.get("/categories", categoriesControllers.browse);
+router.get("/brands", brandsControllers.browse);
+router.get("/models", modelsControllers.browse);
 
 router.get("/brands", brandsControllers.browse);
 router.get("/models", modelsControllers.browse);
@@ -54,8 +56,8 @@ router.delete("/ref_products/:id", refProductsControllers.destroy);
 router.put("/stock_products/:id", stockProductsControllers.edit);
 router.post("/stock_products", stockProductsControllers.add);
 router.delete("/stock_products/:id", stockProductsControllers.destroy);
-
 router.post("/brands", brandsControllers.add);
+
 router.post("/models", modelsControllers.add);
 
 module.exports = router;

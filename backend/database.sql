@@ -1,3 +1,4 @@
+-- Active: 1682342351805@@127.0.0.1@3306@chackahuete_db
 -- creation of users and roles tables --
 CREATE TABLE roles (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -37,44 +38,50 @@ CREATE TABLE models (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(254) NOT NULL,
   screen_size FLOAT NOT NULL,
-  network VARCHAR(254) NOT NULL
+  network VARCHAR(254) NOT NULL,
+  calculator_value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO models (name, screen_size, network) VALUES 
-("Galaxy S9", 5.8, "5G"), 
-("Galaxy S10", 5.8, "5G"), 
-("Galaxy S20", 6.5, "5G"), 
-("Galaxy S21", 6.2, "5G"), 
-("Galaxy A40", 5.9, "5G"), 
-("Galaxy A12", 6.5, "5G"), 
-("Galaxy A70", 6.7, "5G"),  
-("Galaxy Note8", 6.3, "5G"), 
-("Galaxy Note9", 6.4, "5G"), 
-("Galaxy Note10", 6.3, "5G"), 
-("iPhone 13", 6.1, "5G");
+INSERT INTO models (name, screen_size, network, calculator_value) VALUES 
+("Galaxy S9", 5.8, "5G",110), 
+("Galaxy S10", 5.8, "5G",120), 
+("Galaxy S20", 6.5, "5G",130), 
+("Galaxy S21", 6.2, "5G",140), 
+("Galaxy A40", 5.9, "5G",90), 
+("Galaxy A12", 6.5, "5G",100), 
+("Galaxy A70", 6.7, "5G",110),  
+("Galaxy Note8", 6.3, "5G",140), 
+("Galaxy Note9", 6.4, "5G",150), 
+("Galaxy Note10", 6.3, "5G",160), 
+("iPhone 13", 6.1, "5G",150);
 
 CREATE TABLE RAMs (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  value INT NOT NULL
+  value INT NOT NULL,
+  calculator_value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO RAMs (value) VALUES (1), (2), (4), (8), (12), (16);  
+INSERT INTO RAMs (value, calculator_value) VALUES (1,20), (2,30), (4,40), (8,600), (12,80), (16,100);  
 
 CREATE TABLE storages (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  value INT NOT NULL
+  value INT NOT NULL,
+  calculator_value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO storages (value) VALUES (16), (32), (64), (128), (256), (512);  
+INSERT INTO storages (value, calculator_value) VALUES (16,20), (32,30), (64,40), (128,60), (256,80), (512,100), (1000, 120);  
 
 CREATE TABLE states (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  state VARCHAR(254) NOT NULL
+  state VARCHAR(254) NOT NULL,
+  ponderation FLOAT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO states (state) VALUES ("Bon état"), ("Très bon état"), ("Parfait état");
+INSERT INTO states (state, ponderation) VALUES ("Bon état", 0.5 ), ("Très bon état", 0.75 ), ("Parfait état", 0.90 );
 
 CREATE TABLE categories (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  category VARCHAR(254) NOT NULL
+  category VARCHAR(254) NOT NULL,
+  min_value INT NOT NULL,
+  max_value INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO categories (category) VALUES ("1-HC"), ("2-C"), ("3-B"), ("4-A"), ("5-Premium");
+INSERT INTO categories (category, min_value, max_value) VALUES ("HC", 0, 89), ("C", 90, 164), ("B", 165, 254), ("A", 255, 375), ("Premium",375, 1000);
 
 CREATE TABLE locations (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,

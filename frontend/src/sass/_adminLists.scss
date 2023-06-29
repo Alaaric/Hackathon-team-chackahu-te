@@ -7,14 +7,24 @@
     padding: 10px 15px;
     margin: 15px;
     border: 1px solid var(--lightBleuColor);
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      background: var(--lightBleuColor);
+      color: white;
+    }
   }
   table {
-    width: 100%;
+    width: 90%;
+    max-width: 800px;
     height: fit-content;
     thead {
       tr {
         th {
+          padding: 5px 0 5px 20px;
           text-align: left;
+          font-size: 1rem;
         }
       }
     }
@@ -22,10 +32,15 @@
       tr {
         height: 70px;
         border: 1px solid var(--bleuColor);
-        box-shadow: 3px 4px 6px 1px #d8d8d8;
-        border-radius: 40px;
+        box-shadow: 0px 15px 20px -10px #d8d8d8;
         padding-left: 10px;
         color: #4249af;
+        backdrop-filter: blur(3px);
+
+        td {
+          padding: 5px 0 5px 20px;
+          font-size: 1rem;
+        }
       }
     }
   }
