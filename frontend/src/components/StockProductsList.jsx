@@ -8,43 +8,44 @@ function StockProductsList({ tab }) {
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/stock_products/`)
-      .then((res) => {
-        setStockProducts(res.data);
-      })
+      .then((res) => setStockProducts(res.data))
       .catch((err) => console.error(err));
   }, []);
 
   return (
     <div className={tab === 3 ? "display" : "hide"}>
       <button type="button">Ajouter un produit</button>
-
       <table>
-        <tr>
-          <th>Marque</th>
-          <th>Modèle</th>
-          <th>Categorie</th>
-          <th>Etat</th>
-          <th>Prix</th>
-        </tr>
-        {stockProducts &&
-          stockProducts.map((product) => (
-            <tr key={product.id}>
-              <td>
-                <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}${product.photo}`}
-                  alt={`${product.brand} ${product.model}`}
-                />
-                {product.brand_id}
-              </td>
-              <td>{product.model}</td>
-              <td>{product.category}</td>
-              <td>{product.state}</td>
-              <td>{product.price}</td>
-              <td>
-                <img src="../src/assets/view.png" alt="view" />
-              </td>
-            </tr>
-          ))}
+        <thead>
+          <tr>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Categorie</th>
+            <th>Etat</th>
+            <th>Prix</th>
+          </tr>
+        </thead>
+        <tbody>
+          {stockProducts &&
+            stockProducts.map((product) => (
+              <tr key={product.id}>
+                <td>
+                  <img
+                    src={`${import.meta.env.VITE_BACKEND_URL}${product.photo}`}
+                    alt="phone"
+                  />
+                  {product.brand_id}
+                </td>
+                <td>{product.model}</td>
+                <td>{product.category}</td>
+                <td>{product.state}</td>
+                <td>{product.price}€</td>
+                <td>
+                  <img src="../src/assets/view.png" alt="view" />
+                </td>
+              </tr>
+            ))}
+        </tbody>
       </table>
     </div>
   );
