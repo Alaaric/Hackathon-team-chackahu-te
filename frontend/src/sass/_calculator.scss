@@ -68,6 +68,11 @@
         background-color: var(--redColor);
         transform: scale(1.03);
       }
+
+      &:active {
+        transition: 0.1s;
+        transform: scale(0.9);
+      }
     }
 
     .input-file {
@@ -80,7 +85,13 @@
 
       .btnGrading,
       .btnAddStock {
+        cursor: pointer;
         margin: 10px 20px;
+
+        &:active {
+          transition: 0.1s;
+          transform: scale(0.9);
+        }
       }
 
       .btnAddStock {
