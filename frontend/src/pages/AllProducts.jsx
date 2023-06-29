@@ -43,7 +43,7 @@ export default function AllProducts() {
       .then((res) => setAllLocations(res.data))
       .catch((err) => console.error(err));
   }, []);
-  console.info(location);
+
   return (
     <div className="global-container-products">
       {showModal && (

@@ -18,7 +18,6 @@ function UsersList({ tab }) {
       .catch((err) => console.error(err));
   }, [showAddUser, showUpdateUser]);
 
-  console.info(currentUser);
   return (
     <div className={tab === 1 ? "display" : "hide"}>
       {showAddUser && <AddUser setShowAddUser={setShowAddUser} />}
