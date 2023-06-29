@@ -6,10 +6,13 @@ export default function AllProducts() {
   const [allProducts, setAllProducts] = useState([]);
   const [allBrands, setAllBrands] = useState([]);
   const [allModels, setAllModels] = useState([]);
+  // const [allLocations, setAllLocations] = useState([]);
+
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
-  const [modelBox, setModelBox] = useState("");
   const [location, setLocation] = useState("");
+
+  const [modelBox, setModelBox] = useState("");
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/stock_products`)
@@ -30,8 +33,14 @@ export default function AllProducts() {
       .then((res) => setAllModels(res.data))
       .catch((err) => console.error(err));
   }, []);
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/models`)
+      .then((res) => setAllModels(res.data))
+      .catch((err) => console.error(err));
+  }, []);
 
-  console.info(allBrands);
+  console.info(modelBox);
   return (
     <div className="global-container-products">
       <div className="filter-container">
@@ -64,7 +73,7 @@ export default function AllProducts() {
                 type="checkbox"
                 id="model"
                 name="model"
-                value={m.namel}
+                value={m.name}
                 onChange={(e) => setModelBox(e.target.value)}
               />
               {m.name}
@@ -91,9 +100,10 @@ export default function AllProducts() {
         {allProducts
           .filter((e) => {
             return (
-              e.brand.toLowerCase().includes(brand) &&
-              (e.model.toLowerCase().includes(model) || modelBox) &&
-              e.location.toLowerCase().includes(location)
+              (e.brand.toLowerCase().includes(brand) &&
+                e.model.toLowerCase().includes(model) &&
+                e.location.toLowerCase().includes(location)) ||
+              e.model === modelBox
             );
           })
           .map((product) => (
