@@ -39,25 +39,35 @@ class productsManager extends AbstractManager {
     );
   }
 
-  insert(product) {
+  insert(
+    userId,
+    color,
+    brands,
+    model,
+    os,
+    rams,
+    storages,
+    states,
+    category,
+    price,
+    location,
+    descrition
+  ) {
     return this.database.query(
-      `insert into ${this.table} (user_id, creation_date, color, brand_id, model_id, os_id, RAM_id, storage_id,
-        state_id, category_id, accessories, price, location_id, description) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+      `insert into ${this.table} (user_id, color, brand_id, model_id, os_id, RAM_id, storage_id, state_id, category_id, price, location_id, description) values (?,?,?,?,?,?,?,?,?,?,?,?)`,
       [
-        product.user_id,
-        product.creation_date,
-        product.color,
-        product.brand_id,
-        product.model_id,
-        product.os_id,
-        product.RAM_id,
-        product.storage_id,
-        product.state_id,
-        product.category_id,
-        product.accessories,
-        product.price,
-        product.location_id,
-        product.description,
+        userId,
+        color,
+        brands,
+        model,
+        os,
+        rams,
+        storages,
+        states,
+        category,
+        price,
+        location,
+        descrition,
       ]
     );
   }

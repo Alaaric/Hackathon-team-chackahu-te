@@ -19,7 +19,10 @@ export default function Calculator() {
   const [models, setModels] = useState();
   const [result, setResult] = useState([]);
   const [location, setLocation] = useState();
+  const [color, setColor] = useState();
+  const [descrition, setDescrition] = useState();
   const { users } = useContext(UserContext);
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/rams`)
@@ -86,15 +89,18 @@ export default function Calculator() {
   const HandlePostProduct = () => {
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/stock_products`, {
+        userId: users.id,
         rams,
         storages,
         states,
         os,
         brands,
-        models,
+        color,
+        model: models,
         location,
         price: result[1],
         category: result[0],
+        descrition,
       })
       .catch((err) => console.error(err));
   };
@@ -125,6 +131,9 @@ export default function Calculator() {
           OS:
           <br />
           <select name="os" id="os" onChange={(e) => setOs(e.target.value)}>
+            <option selected value=" ">
+              --
+            </option>
             {osList &&
               osList.map((oss) => (
                 <option value={oss.id} key={oss.id}>
@@ -141,6 +150,9 @@ export default function Calculator() {
             id="brand"
             onChange={(e) => setBrands(e.target.value)}
           >
+            <option selected value=" ">
+              --
+            </option>
             {brandList &&
               brandList.map((brand) => (
                 <option value={brand.id} key={brand.id}>
@@ -157,6 +169,9 @@ export default function Calculator() {
             id="model"
             onChange={(e) => setModels(e.target.value)}
           >
+            <option selected value=" ">
+              --
+            </option>
             {modelList &&
               modelList.map((model) => (
                 <option value={model.id} key={model.id}>
@@ -170,6 +185,9 @@ export default function Calculator() {
           RAM:
           <br />
           <select name="ram" id="ram" onChange={(e) => setRams(e.target.value)}>
+            <option selected value=" ">
+              --
+            </option>
             {ramList &&
               ramList.map((ram) => (
                 <option value={ram.id} key={ram.id}>
@@ -186,6 +204,9 @@ export default function Calculator() {
             id="storage"
             onChange={(e) => setStorages(e.target.value)}
           >
+            <option selected value=" ">
+              --
+            </option>
             {storageList &&
               storageList.map((storage) => (
                 <option value={storage.id} key={storage.id}>
@@ -202,6 +223,9 @@ export default function Calculator() {
             id="state"
             onChange={(e) => setStates(e.target.value)}
           >
+            <option selected value=" ">
+              --
+            </option>
             {stateList &&
               stateList.map((state) => (
                 <option value={state.id} key={state.id}>
@@ -219,10 +243,13 @@ export default function Calculator() {
               id="location"
               onChange={(e) => setLocation(e.target.value)}
             >
-              <option value="Paris">Paris</option>
-              <option value="Lyon">Lyon</option>
-              <option value="Marseille">Marseille</option>
-              <option value="Lille">Lille</option>
+              <option selected value=" ">
+                --
+              </option>
+              <option value="1">Paris</option>
+              <option value="11">Lyon</option>
+              <option value="16">Marseille</option>
+              <option value="15">Bordeaux</option>
             </select>
           </label>
         )}
@@ -233,8 +260,11 @@ export default function Calculator() {
             <select
               name="color"
               id="color"
-              onChange={(e) => setLocation(e.target.value)}
+              onChange={(e) => setColor(e.target.value)}
             >
+              <option selected value=" ">
+                --
+              </option>
               <option value="blue">Bleu</option>
               <option value="pink">Rose</option>
               <option value="gray">Gris</option>
@@ -242,6 +272,16 @@ export default function Calculator() {
               <option value="black">Noir</option>
               <option value="white">Blanc</option>
             </select>
+          </label>
+        )}
+        {users.role_id === 2 && (
+          <label htmlFor="descrition">
+            description:
+            <br />
+            <textarea
+              id="description"
+              onChange={(e) => setDescrition(e.target.value)}
+            />
           </label>
         )}
         {users.role_id === 2 && (
