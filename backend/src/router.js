@@ -24,7 +24,7 @@ const {
 
 router.get("/users", usersControllers.browse);
 router.get("/users/:id", usersControllers.read);
-router.put("/users/:id", verifyToken, hashPassword, usersControllers.edit);
+router.put("/users/:id", hashPassword, usersControllers.edit);
 router.post("/login", usersControllers.getUserByEmail, verifyPassword);
 router.post("/users", hashPassword, usersControllers.add);
 router.delete("/users/:id", usersControllers.destroy);
@@ -50,9 +50,8 @@ router.get("/models", modelsControllers.browse);
 router.get("/brands", brandsControllers.browse);
 router.get("/models", modelsControllers.browse);
 router.get("/locations", locationsControllers.browse);
-router.post("/stock_products", stockProductsControllers.add);
 
-router.use(verifyToken);
+router.post("/stock_products", stockProductsControllers.add);
 router.put("/ref_products/:id", refProductsControllers.edit);
 router.post("/ref_products", refProductsControllers.add);
 router.delete("/ref_products/:id", refProductsControllers.destroy);
@@ -64,5 +63,6 @@ router.delete("/stock_products/:id", stockProductsControllers.destroy);
 router.post("/brands", brandsControllers.add);
 
 router.post("/models", modelsControllers.add);
+router.use(verifyToken);
 
 module.exports = router;

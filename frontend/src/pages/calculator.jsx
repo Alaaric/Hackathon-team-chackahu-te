@@ -22,7 +22,7 @@ export default function Calculator() {
   const [color, setColor] = useState();
   const [descrition, setDescrition] = useState();
   const [categoryId, setCategoryId] = useState();
-  const { users } = useContext(UserContext);
+  const { users, token } = useContext(UserContext);
 
   useEffect(() => {
     axios
@@ -93,6 +93,10 @@ export default function Calculator() {
     }
   }, [result]);
 
+  const Header = new Headers();
+  Header.append("Authorization", `Bearer ${token}`);
+  Header.append("Content-Type", "application/json");
+
   const HandlePostProduct = () => {
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/stock_products`, {
@@ -108,6 +112,7 @@ export default function Calculator() {
         price: result[1],
         category: categoryId,
         descrition,
+        Headers: Header,
       })
       .catch((err) => console.error(err));
   };
