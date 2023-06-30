@@ -27,7 +27,11 @@ function UsersList({ tab }) {
           currentUser={currentUser}
         />
       )}
-      <button type="button" onClick={() => setShowAddUser(true)}>
+      <button
+        type="button"
+        className="addBtn"
+        onClick={() => setShowAddUser(true)}
+      >
         Ajouter un utilisateur
       </button>
       <table>
@@ -50,6 +54,7 @@ function UsersList({ tab }) {
                 <td>
                   <button
                     type="button"
+                    className="viewBtn"
                     onClick={() => {
                       // eslint-disable-next-line no-sequences
                       return setShowUpdateUser(true), setCurrentUser(user);

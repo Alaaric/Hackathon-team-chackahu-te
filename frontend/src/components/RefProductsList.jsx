@@ -16,7 +16,9 @@ function RefProductsList({ tab }) {
 
   return (
     <div className={tab === 2 ? "display" : "hide"}>
-      <button type="button">Ajouter une référence</button>
+      <button type="button" className="addBtn">
+        Ajouter une référence
+      </button>
       <table>
         <thead>
           <tr>

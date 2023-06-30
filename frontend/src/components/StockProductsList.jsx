@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import AddProduct from "./AddProduct";
+import { Link } from "react-router-dom";
 
 function StockProductsList({ tab }) {
   const [stockProducts, setStockProducts] = useState([]);
   const [row, setRow] = useState(0);
   const [previousRow, setPreviousRow] = useState(0);
-  const [showAddProduct, setShowAddProduct] = useState(false);
   const [productDel, setProductDel] = useState(false);
 
   useEffect(() => {
@@ -15,13 +14,14 @@ function StockProductsList({ tab }) {
       .get(`${import.meta.env.VITE_BACKEND_URL}/stock_products/`)
       .then((res) => setStockProducts(res.data))
       .catch((err) => console.error(err));
-  }, [showAddProduct, productDel]);
+  }, [productDel]);
 
   return (
     <div className={tab === 3 ? "display" : "hide"}>
-      {showAddProduct && <AddProduct setShowAddProduct={setShowAddProduct} />}
-      <button type="button" onClick={() => setShowAddProduct(true)}>
-        Ajouter un produit
+      <button type="button" className="addBtn">
+        <Link to="/admin/calculator" className="calculatorLink">
+          Ajouter un produit
+        </Link>
       </button>
       <table>
         <thead>
@@ -54,6 +54,7 @@ function StockProductsList({ tab }) {
                   <td>
                     <button
                       type="button"
+                      className="viewBtn"
                       onClick={() => {
                         if (row === product.id && previousRow === row) {
                           setPreviousRow(0);
@@ -68,6 +69,7 @@ function StockProductsList({ tab }) {
                   </td>
                 </tr>
                 <tr
+                  key={product.model[0]}
                   className={
                     row === product.id && previousRow !== row ? "open" : "fold"
                   }
@@ -96,16 +98,14 @@ function StockProductsList({ tab }) {
                       <button
                         type="button"
                         className="deleteBtn"
-                        onClick={(req, res) => {
+                        onClick={() => {
                           axios
                             .delete(
                               `${
                                 import.meta.env.VITE_BACKEND_URL
                               }/stock_products/${product.id}`
                             )
-                            .then((result) => {
-                              res.sendStatus(204);
-                              console.info(result);
+                            .then(() => {
                               setProductDel(!productDel);
                             })
                             .catch((err) => console.error(err));
