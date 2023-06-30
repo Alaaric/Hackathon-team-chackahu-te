@@ -14,6 +14,8 @@
     height: auto;
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(2px);
+    animation: zoomIn 0.9s ease forwards;
+    transition: 0.4s;
   }
 
   > h1 {
@@ -33,6 +35,7 @@
     padding: 10px;
     transition: 0.3s ease-in-out;
     box-shadow: 0px 10px 5px -10px rgba(0, 0, 0, 0.3);
+    
 
     summary {
       font-weight: bold;
@@ -52,30 +55,72 @@
   .details1 {
     background: rgba(255, 205, 56, 0.35);
     backdrop-filter: blur(2px);
+    animation: slideRight 0.5s ease-in-out;
+    
   }
 
   .details2 {
     background: rgba(57, 188, 208, 0.35);
     backdrop-filter: blur(2px);
+    animation: slideLeft 0.8s ease-in-out;
   }
 
   .details3 {
     background: rgba(230, 36, 98, 0.35);
     backdrop-filter: blur(2px);
+    animation: slideRight 1.1s ease-in-out;
   }
 
   .details4 {
     background: rgba(0, 39, 67, 0.35);
     backdrop-filter: blur(2px);
+    animation: slideLeft 1.3s ease-in-out;
   }
 
   .details5 {
     background: rgba(255, 205, 56, 0.35);
     backdrop-filter: blur(2px);
+    animation: slideRight 1.6s ease-in-out;
   }
 
   .details6 {
     background: rgba(57, 188, 208, 0.35);
     backdrop-filter: blur(2px);
+    animation: slideLeft 1.9s ease-in-out;
+  }
+}
+
+
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

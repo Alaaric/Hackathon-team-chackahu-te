@@ -97,6 +97,14 @@
       .btnAddStock {
         background: var(--yellowColor);
       }
+
+    }
+
+    @media screen and (min-width: 768px) {
+      .btnGradingAndStockContainer {
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
 }
@@ -161,10 +169,5 @@
       align-items: center;
       width: 30%;
     }
-  }
-
-  .btnGradingAndStockContainer {
-    display: flex;
-    flex-direction: row;
   }
 }
