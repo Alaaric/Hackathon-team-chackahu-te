@@ -6,7 +6,7 @@ import UserContext from "../contexts/UserContext";
 import LogoEmmaus from "../assets/logoEmmaus.png";
 
 export default function Login() {
-  const { setUsers } = useContext(UserContext);
+  const { setUsers, setToken } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -30,12 +30,15 @@ export default function Login() {
           setMessage(res.data.message);
         } else if (res.data.user.role_id === 2) {
           setUsers(res.data.user);
+          setToken(res.data.token);
 
           setTimeout(() => {
             navigate("/admin/dashboard");
           }, 500);
         } else {
           setUsers(res.data.user);
+          setToken(res.data.token);
+
           setTimeout(() => {
             navigate("/connected/calculator");
           }, 500);
