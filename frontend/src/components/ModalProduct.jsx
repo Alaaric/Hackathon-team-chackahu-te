@@ -46,7 +46,7 @@ function ModalProduct({ product, closeModal }) {
               <h1>{product.model}</h1>
             </div>
             <div className="image-container">
-              <img src={`../src/${product.photo}`} alt="" />
+              <img src={`../src/assets/${product.photo}`} alt="" />
             </div>
           </div>
           <div className="description-modal-container">
