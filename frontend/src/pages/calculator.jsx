@@ -118,7 +118,7 @@ export default function Calculator() {
         model: models,
         location,
         price: result[1],
-        // photo: res.data,
+
         category: categoryId,
         descrition,
         Headers: Header,
