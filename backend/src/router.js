@@ -1,7 +1,10 @@
 const express = require("express");
+const multer = require("multer");
 
 const router = express.Router();
 
+const upload = multer({ dest: "./public/uploads/" });
+const uploadFile = require("./services/uploadFile");
 const refProductsControllers = require("./controllers/refProductsControllers");
 const stockProductsControllers = require("./controllers/stockProductsControllers");
 const mailControllers = require("./controllers/mailControllers");
@@ -57,6 +60,7 @@ router.post("/ref_products", refProductsControllers.add);
 router.delete("/ref_products/:id", refProductsControllers.destroy);
 
 router.post("/comments", commentsControllers.add);
+router.post("/api/image", upload.single("photo"), uploadFile.postFile);
 
 router.put("/stock_products/:id", stockProductsControllers.edit);
 router.delete("/stock_products/:id", stockProductsControllers.destroy);

@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import determineCategory from "../services/determineCategory";
 import UserContext from "../contexts/UserContext";
 
 export default function Calculator() {
+  const inputRef = useRef();
   const [ramList, setRamList] = useState([]);
   const [storageList, setStorageList] = useState();
   const [stateList, setStateList] = useState();
@@ -98,6 +99,13 @@ export default function Calculator() {
   Header.append("Content-Type", "application/json");
 
   const HandlePostProduct = () => {
+    // const formData = new FormData();
+
+    // formData.append("photo", inputRef.current.files[0]);
+    // axios
+    //   .post(`${import.meta.env.VITE_BACKEND_URL}/api/image`, formData)
+    //   .then((res) => {
+    //     if (res.status === 201) {
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/stock_products`, {
         userId: users.id,
@@ -110,12 +118,15 @@ export default function Calculator() {
         model: models,
         location,
         price: result[1],
+        // photo: res.data,
         category: categoryId,
         descrition,
         Headers: Header,
       })
       .catch((err) => console.error(err));
   };
+  //     });
+  // };
 
   return (
     <div className="calculator">
@@ -312,7 +323,15 @@ export default function Calculator() {
           <label htmlFor="color">
             Photo:
             <br />
-            <input type="file" className="btnGrading" />
+            <input
+              id="image"
+              className="btnGrading"
+              type="file"
+              name="photo"
+              ref={inputRef}
+              required
+            />
+            {/* <input type="file" className="btnGrading" /> */}
           </label>
         )}
         <button className="btnGrading" type="submit">
