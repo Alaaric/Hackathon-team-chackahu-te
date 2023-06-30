@@ -341,7 +341,8 @@ export default function Calculator() {
             Choisir une photo
             <br />
             <input
-              className="input-file " id="photo"
+              className="input-file"
+              id="photo"
               type="file"
               name="photo"
               ref={inputRef}
