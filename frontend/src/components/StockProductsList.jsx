@@ -55,8 +55,12 @@ function StockProductsList({ tab }) {
                     <button
                       type="button"
                       onClick={() => {
-                        setPreviousRow(row);
-                        setRow(product.id);
+                        if (row === product.id && previousRow === row) {
+                          setPreviousRow(0);
+                        } else {
+                          setPreviousRow(row);
+                          setRow(product.id);
+                        }
                       }}
                     >
                       <img src="../src/assets/view.png" alt="view" />
@@ -65,9 +69,7 @@ function StockProductsList({ tab }) {
                 </tr>
                 <tr
                   className={
-                    row === product.id && previousRow !== row
-                      ? "open"
-                      : ("fold", setPreviousRow(0))
+                    row === product.id && previousRow !== row ? "open" : "fold"
                   }
                 >
                   <td colSpan="7">
