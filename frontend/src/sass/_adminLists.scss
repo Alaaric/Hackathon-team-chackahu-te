@@ -1,5 +1,6 @@
 .display {
-  button {
+  .addBtn,
+  .deleteBtn {
     cursor: pointer;
     background-color: white;
     color: var(--lightBleuColor);
@@ -8,11 +9,21 @@
     margin: 15px;
     border: 1px solid var(--lightBleuColor);
     transition: 0.3s ease-in-out;
+    width: 160px;
 
+    .calculatorLink {
+      text-decoration: none;
+      color: var(--lightBleuColor);
+      width: 100%;
+    }
     &:hover {
       transform: scale(1.1);
       background: var(--lightBleuColor);
       color: white;
+
+      .calculatorLink {
+        color: white;
+      }
     }
   }
   table {
@@ -40,6 +51,22 @@
         td {
           padding: 5px 0 5px 20px;
           font-size: 1rem;
+
+          .viewBtn {
+            cursor: pointer;
+            background-color: white;
+            color: var(--lightBleuColor);
+            border-radius: 40px;
+            padding: 10px 13px;
+            margin: 15px;
+            border: 1px solid var(--lightBleuColor);
+            transition: 0.3s ease-in-out;
+          }
+          .viewBtn:hover {
+            transform: scale(1.1);
+            background: var(--lightBleuColor);
+            color: white;
+          }
         }
       }
       .open {
