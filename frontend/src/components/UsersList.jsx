@@ -40,7 +40,7 @@ function UsersList({ tab }) {
                 <td>{user.lastname}</td>
                 <td>{user.firstname}</td>
                 <td>{user.email}</td>
-                <td>{user.role_id}</td>
+                <td>{user.role}</td>
                 <td>
                   <button type="button" onClick={() => setShowUpdateUser(true)}>
                     <img src="../src/assets/view.png" alt="" />

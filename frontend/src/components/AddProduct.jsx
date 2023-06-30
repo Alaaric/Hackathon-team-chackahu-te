@@ -247,7 +247,7 @@ export default function AddProduct({ setShowAddProduct }) {
             </div>
           </div>
         </div>
-        <button type="submit">Ajouter l'utilisateur</button>
+        <button type="submit">Ajouter un produit</button>
       </form>
     </div>
   );
