@@ -58,12 +58,14 @@ export default function AddUser({ setShowAddUser }) {
     <div className="modalBackground-user">
       {" "}
       <form className="add-user-management" onSubmit={submit}>
-        <div className="close-btn">
-          <button type="button" onClick={() => setShowAddUser(false)}>
-            {" "}
-            X{" "}
-          </button>
-        </div>
+        <button
+          type="button"
+          className="close-btn"
+          onClick={() => setShowAddUser(false)}
+        >
+          {" "}
+          X{" "}
+        </button>
         <div className="add-user-title-container">
           <h2 className="add-user-title">Ajout d'utilisateur</h2>
         </div>
@@ -132,7 +134,9 @@ export default function AddUser({ setShowAddUser }) {
             </div>
           </div>
           <div className="add-button-container">
-            <button type="submit">Ajouter l'utilisateur</button>
+            <button type="submit" className="addBtn">
+              Ajouter l'utilisateur
+            </button>
           </div>
         </div>
       </form>

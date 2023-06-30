@@ -75,12 +75,15 @@ export default function UpdateUser({ setShowUpdateUser, currentUser }) {
   return (
     <div className="modalBackground-user">
       <form className="add-user-management">
-        <div className="close-btn">
-          <button type="button" onClick={() => setShowUpdateUser(false)}>
-            {" "}
-            X{" "}
-          </button>
-        </div>
+        <button
+          type="button"
+          className="close-btn"
+          onClick={() => setShowUpdateUser(false)}
+        >
+          {" "}
+          X{" "}
+        </button>
+
         <div className="add-user-title-container">
           <h2 className="add-user-title">Modification d'utilisateur</h2>
         </div>
@@ -139,12 +142,12 @@ export default function UpdateUser({ setShowUpdateUser, currentUser }) {
               </div>
             </div>
           </div>
-          <div className="add-button-container ">
-            <button type="button" onClick={submit}>
+          <div className="add-button-container">
+            <button type="button" className="addBtn" onClick={submit}>
               Modifier l'utilisateur
             </button>
             <button
-              className="remove-button-container"
+              className="remove-button-container deleteBtn"
               type="button"
               onClick={() => handleDelete()}
             >
