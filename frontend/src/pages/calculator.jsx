@@ -142,8 +142,13 @@ export default function Calculator() {
         <label htmlFor="os">
           OS:
           <br />
-          <select name="os" id="os" onChange={(e) => setOs(e.target.value)}>
-            <option selected value=" ">
+          <select
+            name="os"
+            id="os"
+            onChange={(e) => setOs(e.target.value)}
+            defaultValue="--"
+          >
+            <option value="--" disabled>
               --
             </option>
             {osList &&
@@ -161,8 +166,9 @@ export default function Calculator() {
             name="brand"
             id="brand"
             onChange={(e) => setBrands(e.target.value)}
+            defaultValue="--"
           >
-            <option selected value=" ">
+            <option value="--" disabled>
               --
             </option>
             {brandList &&
@@ -180,8 +186,9 @@ export default function Calculator() {
             name="model"
             id="model"
             onChange={(e) => setModels(e.target.value)}
+            defaultValue="--"
           >
-            <option selected value=" ">
+            <option value="--" disabled>
               --
             </option>
             {modelList &&
@@ -196,8 +203,13 @@ export default function Calculator() {
         <label htmlFor="ram">
           RAM:
           <br />
-          <select name="ram" id="ram" onChange={(e) => setRams(e.target.value)}>
-            <option selected value=" ">
+          <select
+            name="ram"
+            id="ram"
+            onChange={(e) => setRams(e.target.value)}
+            defaultValue="--"
+          >
+            <option value="--" disabled>
               --
             </option>
             {ramList &&
@@ -215,8 +227,9 @@ export default function Calculator() {
             name="storage"
             id="storage"
             onChange={(e) => setStorages(e.target.value)}
+            defaultValue="--"
           >
-            <option selected value=" ">
+            <option value="--" disabled>
               --
             </option>
             {storageList &&
@@ -234,8 +247,9 @@ export default function Calculator() {
             name="state"
             id="state"
             onChange={(e) => setStates(e.target.value)}
+            defaultValue="--"
           >
-            <option selected value=" ">
+            <option value="--" disabled>
               --
             </option>
             {stateList &&
@@ -254,8 +268,9 @@ export default function Calculator() {
               name="location"
               id="location"
               onChange={(e) => setLocation(e.target.value)}
+              defaultValue="--"
             >
-              <option selected value=" ">
+              <option value="--" disabled>
                 --
               </option>
               <option value="1">Paris</option>
@@ -267,14 +282,15 @@ export default function Calculator() {
         )}
         {users.role_id === 2 && (
           <label htmlFor="color">
-            Lieu:
+            Couleur:
             <br />
             <select
               name="color"
               id="color"
               onChange={(e) => setColor(e.target.value)}
+              defaultValue="--"
             >
-              <option selected value=" ">
+              <option value="--" disabled>
                 --
               </option>
               <option value="blue">Bleu</option>
@@ -309,26 +325,28 @@ export default function Calculator() {
           </label>
         )}
         {users.role_id === 2 && (
-          <label htmlFor="color">
-            Photo:
+          <label htmlFor="photo" className="label-file">
+            Choisir une photo
             <br />
-            <input type="file" className="btnGrading" />
+            <input type="file" className="input-file " id="photo" />
           </label>
         )}
-        <button className="btnGrading" type="submit">
-          {" "}
-          évaluer
-        </button>
-        {users.role_id === 2 && (
-          <button
-            className="btnGrading"
-            type="button"
-            onClick={HandlePostProduct}
-          >
+        <div className="btnGradingAndStockContainer">
+          <button className="btnGrading" type="submit">
             {" "}
-            Ajouter au stock
+            évaluer
           </button>
-        )}
+          {users.role_id === 2 && (
+            <button
+              className="btnAddStock"
+              type="button"
+              onClick={HandlePostProduct}
+            >
+              {" "}
+              Ajouter au stock
+            </button>
+          )}
+        </div>
       </form>
       {result && (
         <div className="priceCategoryContainer">
