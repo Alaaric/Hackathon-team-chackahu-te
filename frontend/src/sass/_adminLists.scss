@@ -4,7 +4,7 @@
     background-color: white;
     color: var(--lightBleuColor);
     border-radius: 40px;
-    padding: 10px 15px;
+    padding: 10px 13px;
     margin: 15px;
     border: 1px solid var(--lightBleuColor);
     transition: 0.3s ease-in-out;
@@ -43,12 +43,30 @@
         }
       }
       .open {
-        height: 280px;
-        // display: flex;
-        // width: inherit;
         td {
-          column-span: 5;
+          width: 100%;
+          .wrapper {
+            display: flex;
+            margin-top: 10px;
+            img {
+              object-fit: contain;
+            }
+            .moreInfo {
+              h3,
+              p {
+                margin: 0 20px;
+              }
+            }
+            .deleteBtn {
+              margin-left: auto;
+              height: 38px;
+              align-self: flex-end;
+            }
+          }
         }
+      }
+      .fold {
+        display: none;
       }
     }
   }
