@@ -41,7 +41,7 @@ function StockProductsList({ tab }) {
                 <tr key={product.id}>
                   <td>
                     <img
-                      src={`../src/${product.photo}`}
+                      src={`../src/assets/${product.photo}`}
                       alt="phone"
                       style={{ width: "45px" }}
                     />
@@ -77,7 +77,7 @@ function StockProductsList({ tab }) {
                   <td colSpan="7">
                     <div className="wrapper">
                       <img
-                        src={`../src/${product.photo}`}
+                        src={`../src/assets/${product.photo}`}
                         alt="phone"
                         style={{ width: "280px" }}
                       />
