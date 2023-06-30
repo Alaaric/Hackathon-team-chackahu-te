@@ -12,6 +12,8 @@
 .logoEmmausLogin {
   margin: 0 0 20px 0;
   width: clamp(300px, 40%, 500px);
+  animation: zoomIn 0.5s ease forwards;
+  transition: 0.4s;
 }
 
 .login {
@@ -30,6 +32,8 @@
     background: rgba(235, 235, 235, 0.6);
     box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(3px);
+    animation: zoomIn 0.5s ease forwards;
+    transition: 0.4s;
 
     label {
       display: flex;
@@ -155,5 +159,16 @@
   }
   100% {
     transform: translate(30%, 60%);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
