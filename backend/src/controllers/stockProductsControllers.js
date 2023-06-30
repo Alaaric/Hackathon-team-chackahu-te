@@ -64,6 +64,7 @@ const add = (req, res) => {
     price,
     category,
     descrition,
+    photo,
   } = req.body;
 
   // TODO validations (length, format...)
@@ -81,7 +82,8 @@ const add = (req, res) => {
       category,
       price,
       location,
-      descrition
+      descrition,
+      photo
     )
     .then(([result]) => {
       res.location(`/stock_products/${result.insertId}`).sendStatus(201);

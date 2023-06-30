@@ -16,7 +16,7 @@ function UsersList({ tab }) {
         setUsers(res.data);
       })
       .catch((err) => console.error(err));
-  }, [showAddUser, showUpdateUser]);
+  }, [showAddUser, setShowAddUser, showUpdateUser]);
 
   return (
     <div className={tab === 1 ? "display" : "hide"}>

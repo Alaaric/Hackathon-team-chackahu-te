@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import determineCategory from "../services/determineCategory";
 import UserContext from "../contexts/UserContext";
 
 export default function Calculator() {
+  const inputRef = useRef();
   const [ramList, setRamList] = useState([]);
   const [storageList, setStorageList] = useState();
   const [stateList, setStateList] = useState();
@@ -98,23 +99,34 @@ export default function Calculator() {
   Header.append("Content-Type", "application/json");
 
   const HandlePostProduct = () => {
+    const formData = new FormData();
+
+    formData.append("photo", inputRef.current.files[0]);
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/stock_products`, {
-        userId: users.id,
-        rams,
-        storages,
-        states,
-        os,
-        brands,
-        color,
-        model: models,
-        location,
-        price: result[1],
-        category: categoryId,
-        descrition,
-        Headers: Header,
-      })
-      .catch((err) => console.error(err));
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/image`, formData)
+      .then((res) => {
+        if (res.status === 201) {
+          console.info(res.data);
+          axios
+            .post(`${import.meta.env.VITE_BACKEND_URL}/stock_products`, {
+              userId: users.id,
+              rams,
+              storages,
+              states,
+              os,
+              brands,
+              color,
+              model: models,
+              location,
+              price: result[1],
+              photo: res.data,
+              category: categoryId,
+              descrition,
+              Headers: Header,
+            })
+            .catch((err) => console.error(err));
+        }
+      });
   };
 
   return (
@@ -328,7 +340,14 @@ export default function Calculator() {
           <label htmlFor="photo" className="label-file">
             Choisir une photo
             <br />
-            <input type="file" className="input-file " id="photo" />
+            <input
+              className="input-file"
+              id="photo"
+              type="file"
+              name="photo"
+              ref={inputRef}
+              required
+            />
           </label>
         )}
         <div className="btnGradingAndStockContainer">
