@@ -1,0 +1,103 @@
+.modalBackground {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.267);
+  backdrop-filter: blur(2px);
+  // position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  .add-product {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #0e0d0d;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    box-shadow: 5px 9px 19px 8px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    height: 700px;
+
+    .close {
+      width: 40px;
+      margin: 10px 20px 0 auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+      margin-top: 0;
+    }
+
+    .wrapper {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+
+      .left-container,
+      .right-container {
+        width: 40%;
+        max-width: 330px;
+
+        .input-fields {
+          label {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            width: 100%;
+            display: inline;
+            margin-right: 20px;
+          }
+          input {
+            padding-left: 0.7rem;
+            border-radius: 0.25rem;
+            border: 1px solid rgb(78, 78, 78);
+            width: 90%;
+            max-width: 180px;
+            outline: none;
+            height: 1.3rem;
+          }
+          select {
+            width: 10rem;
+            height: 1.4rem;
+            margin-top: 0.5rem;
+            margin-right: 1rem;
+            border-radius: 0.25rem;
+            background-color: white;
+            border: 1px solid black;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    button {
+      height: 2.5rem;
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .add-product {
+      padding: 0.5rem 0;
+      height: 540px;
+
+      .wrapper {
+        width: 100%;
+
+        .input-fields {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

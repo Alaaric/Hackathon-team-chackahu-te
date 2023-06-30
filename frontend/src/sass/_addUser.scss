@@ -1,0 +1,243 @@
+.modalBackground-user {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.267);
+  backdrop-filter: blur(2px);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  .add-user-management {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 85%;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    font-family: "Raleway", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.5;
+    color: #0e0d0d;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 5px 9px 19px 8px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+
+    .add-user-title-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .add-user-title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+    .user-management-container {
+      width: 90%;
+      margin: 0 auto;
+    }
+    .input-fields {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-direction: column;
+
+      .reset-link-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 1rem;
+        .reset-link {
+          border: none;
+          background: none;
+          cursor: pointer;
+          color: var(--redColor);
+          font-weight: bold;
+          font-size: 1rem;
+        }
+      }
+
+      > label {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        width: 100%;
+
+        > input {
+          margin-top: 0.5rem;
+          padding: 1rem;
+          border-radius: 5px;
+          border: 1px solid black;
+          width: 90%;
+        }
+
+        :focus {
+          outline: none;
+          border: 1px solid red;
+        }
+
+        input[type="email"] {
+          width: 90%;
+        }
+      }
+      p {
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      .roles-container-1 {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        justify-content: flex-start;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        gap: 1rem;
+
+        select {
+          width: 10rem;
+          height: 2rem;
+        }
+        .actual-role {
+          margin: 0;
+          text-align: left;
+        }
+        :focus {
+          outline: none;
+          border: 1px solid red;
+        }
+
+        select {
+          margin-top: 0.5rem;
+          margin-right: 1rem;
+          border-radius: 1rem;
+          background-color: white;
+          border: 1px solid black;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .add-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: 6rem;
+      height: 2rem;
+      width: 100%;
+      gap: 1rem;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .add-user-management {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    max-width: 60rem;
+
+    .close-btn {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .add-user-title-container {
+      justify-content: flex-start;
+
+      width: 90%;
+    }
+
+    .user-management-container {
+      width: 100%;
+      .input-fields {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+        margin: 0 auto;
+
+        .reset-link-container {
+          width: 50%;
+          justify-content: center;
+        }
+
+        .roles-container-1 {
+          width: 95%;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: end;
+
+          select {
+            width: 10rem;
+            height: 2rem;
+          }
+        }
+        > label {
+          width: 40rem;
+
+          > input {
+            width: 90%;
+          }
+        }
+        .desktop {
+          flex-direction: row;
+        }
+        .update {
+          width: 95%;
+          justify-content: flex-start;
+
+          p {
+            width: 50%;
+          }
+
+          label {
+            width: 49%;
+          }
+        }
+        .paswword-container {
+          display: flex;
+          justify-content: space-between;
+          width: 80%;
+        }
+
+        .name-inputs-container {
+          display: flex;
+          justify-content: left;
+          flex-direction: row;
+          margin: 0;
+        }
+
+        label {
+          input[type="email"] {
+            min-width: 10rem;
+          }
+
+          input[type="password"] {
+            min-width: 10rem;
+          }
+        }
+      }
+    }
+
+    .add-button-container {
+      justify-content: center;
+      width: 100%;
+      margin-top: 4rem;
+
+      button {
+        width: 15rem;
+      }
+    }
+  }
+}
