@@ -144,9 +144,9 @@ CREATE TABLE stock_products (
 INSERT INTO stock_products (user_id, creation_date, color, brand_id, model_id, os_id, RAM_id, storage_id,
 state_id, category_id, accessories, photo, price, location_id, description) 
 VALUES  
-(1, '2023-06-28T13:59:00', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, "/assets/galaxys9.jpg", 33.00, 1, "description ..."), 
-(1, '2023-06-28T14:09:00', "rose", 1, 2, 1, 4, 5, 2, 4, 1, "/assets/galaxys20.jpg", 45.00, 2, "description ..."), 
-(1, '2023-06-28T14:14:00', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, "/assets/galaxys21.jpg", 59.00, 5,"description ..."), 
-(1, '2023-06-28T14:18:00', "orange", 1, 5, 1, 4, 5, 1, 4, 1, "/assets/galaxyA40.jpg", 66.00, 8, "description ..."),   
-(1, '2023-06-28T14:39:00', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, "/assets/galaxyNote10.jpg", 70.00, 1, "description ..."), 
-(1, '2023-06-28T14:45:00', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, "/assets/iphone13.jpg", 90.00, 5, "description ...");
+(1, '2023-06-28T13:59:00', "bleu", 1, 1, 1, 4, 5, 1, 4, 0, "galaxys9.jpg", 33.00, 1, "description ..."), 
+(1, '2023-06-28T14:09:00', "rose", 1, 2, 1, 4, 5, 2, 4, 1, "galaxys20.jpg", 45.00, 2, "description ..."), 
+(1, '2023-06-28T14:14:00', "Violet fantôme", 1, 4, 1, 4, 5, 3, 4, 1, "galaxys21.jpg", 59.00, 5,"description ..."), 
+(1, '2023-06-28T14:18:00', "orange", 1, 5, 1, 4, 5, 1, 4, 1, "galaxyA40.jpg", 66.00, 8, "description ..."),   
+(1, '2023-06-28T14:39:00', "Argent stellaire", 1, 10, 1, 4, 5, 2, 4, 1, "galaxyNote10.jpg", 70.00, 1, "description ..."), 
+(1, '2023-06-28T14:45:00', "Bleu", 2, 11, 2, 3, 4, 3, 4, 1, "iphone13.jpg", 90.00, 5, "description ...");

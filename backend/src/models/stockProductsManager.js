@@ -51,10 +51,11 @@ class productsManager extends AbstractManager {
     category,
     price,
     location,
-    descrition
+    descrition,
+    photo
   ) {
     return this.database.query(
-      `insert into ${this.table} (user_id, color, brand_id, model_id, os_id, RAM_id, storage_id, state_id, category_id, price, location_id, description) values (?,?,?,?,?,?,?,?,?,?,?,?)`,
+      `insert into ${this.table} (user_id, color, brand_id, model_id, os_id, RAM_id, storage_id, state_id, category_id, price, location_id, description, photo) values (?,?,?,?,?,?,?,?,?,?,?,?,?)`,
       [
         userId,
         color,
@@ -68,6 +69,7 @@ class productsManager extends AbstractManager {
         price,
         location,
         descrition,
+        photo,
       ]
     );
   }

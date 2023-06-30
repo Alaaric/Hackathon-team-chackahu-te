@@ -22,7 +22,7 @@ const usersControllers = require("./controllers/usersControllers");
 const {
   hashPassword,
   verifyPassword,
-  verifyToken,
+  // verifyToken,
 } = require("./services/auth");
 
 router.get("/users", usersControllers.browse);
@@ -67,6 +67,6 @@ router.delete("/stock_products/:id", stockProductsControllers.destroy);
 router.post("/brands", brandsControllers.add);
 
 router.post("/models", modelsControllers.add);
-router.use(verifyToken);
+// router.use(verifyToken);
 
 module.exports = router;

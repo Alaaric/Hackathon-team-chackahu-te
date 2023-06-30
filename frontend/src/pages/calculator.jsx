@@ -99,34 +99,35 @@ export default function Calculator() {
   Header.append("Content-Type", "application/json");
 
   const HandlePostProduct = () => {
-    // const formData = new FormData();
+    const formData = new FormData();
 
-    // formData.append("photo", inputRef.current.files[0]);
-    // axios
-    //   .post(`${import.meta.env.VITE_BACKEND_URL}/api/image`, formData)
-    //   .then((res) => {
-    //     if (res.status === 201) {
+    formData.append("photo", inputRef.current.files[0]);
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/stock_products`, {
-        userId: users.id,
-        rams,
-        storages,
-        states,
-        os,
-        brands,
-        color,
-        model: models,
-        location,
-        price: result[1],
-
-        category: categoryId,
-        descrition,
-        Headers: Header,
-      })
-      .catch((err) => console.error(err));
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/image`, formData)
+      .then((res) => {
+        if (res.status === 201) {
+          console.info(res.data);
+          axios
+            .post(`${import.meta.env.VITE_BACKEND_URL}/stock_products`, {
+              userId: users.id,
+              rams,
+              storages,
+              states,
+              os,
+              brands,
+              color,
+              model: models,
+              location,
+              price: result[1],
+              photo: res.data,
+              category: categoryId,
+              descrition,
+              Headers: Header,
+            })
+            .catch((err) => console.error(err));
+        }
+      });
   };
-  //     });
-  // };
 
   return (
     <div className="calculator">
@@ -331,7 +332,6 @@ export default function Calculator() {
               ref={inputRef}
               required
             />
-            {/* <input type="file" className="btnGrading" /> */}
           </label>
         )}
         <button className="btnGrading" type="submit">
